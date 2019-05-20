@@ -1,0 +1,7 @@
+@mixin displayFlex($justC, $alignC, $alignI, $fdirection){
+  display: flex;
+  justify-content: $justC;
+  align-content: $alignC;
+  align-items: $alignI;
+  flex-direction: $fdirection;
+}
