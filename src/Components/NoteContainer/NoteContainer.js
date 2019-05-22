@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import "./NoteCardContainer.scss";
+import "./NoteContainer.scss";
+import NoteCard from '../NoteCard/NoteCard';
 
-class NoteCardContainer extends Component {
+class NoteContainer extends Component {
   render() {
     return (
-      <div className="note-card-container-component">
-        <h1>NoteCardContainer</h1>
+      <div className="note-container-component">
+        <NoteCard />
       </div>
     );
   }
 }
 
-export default NoteCardContainer;
+export default NoteContainer;
