@@ -1,0 +1,17 @@
+.note-card {
+  background-color: #ffff88;
+  height: 400px;
+  width: 400px;
+  margin: 200px auto;
+  border-radius: 5%;
+
+  .note-title {
+    margin-top: 15px;
+    background-color: #ffff88;
+    border: none;
+    width: 99%;
+    height: 1em;
+    font-size: 35px;
+    padding-bottom: 15px;
+  }
+}
