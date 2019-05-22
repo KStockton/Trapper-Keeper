@@ -1,0 +1,44 @@
+.header-component {
+  height: 100px;
+  margin-top: 0;
+  background-color: #1C1003;
+  position: fixed;
+  width: 100vw;
+  
+  .title {
+    color: white;
+    margin: 5px auto;
+    margin-left: 65px;
+    float: left;
+    font-family: 'Lora', serif;
+    font-size: 70px;
+
+    &::before {
+      content: "";
+      background-image: url('../Assets/pin.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      height: 75px;
+      width: 75px;
+      left: 10px;
+    }
+  }
+
+  .add-note {
+    background-image: url('../Assets/plus.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: right;
+    margin: 20px 20px;
+    width: 65px;
+    height: 65px;
+    border: none;
+    background-color: #1C1003;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.note-item-component {
+  // border: 1px solid red;
+}
+
+input[type=checkbox]:checked + input.list-item {
+  text-decoration: line-through;
+}
+
+.list-item {
+  background-color: #ffff88;
+  border: none;
+  width: 90%;
+  height: 30px;
+  font-size: 15px;
+}

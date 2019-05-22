@@ -1,6 +1,11 @@
 @import './_Normalize';
 @import './_Variables';
-@import '../App.scss';
+@import '../Components/App/App.scss';
+@import '../Components/Header/Header.scss';
+@import '../Components/Main/Main.scss';
+@import '../Components/NoteCard/NoteCard.scss';
+@import '../Components/NoteItem/NoteItem.scss';
+@import '../Components/NoteContainer/NoteContainer.scss';
 
 body {
   margin: 0;
