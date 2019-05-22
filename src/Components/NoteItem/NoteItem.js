@@ -7,6 +7,7 @@ class NoteItem extends Component {
       <div className="note-item-component">
         <input type="checkbox" />
         <input type="text" placeholder="List Item" className="list-item"/>
+        <button className="remove-content">x</button>
       </div>
     );
   }

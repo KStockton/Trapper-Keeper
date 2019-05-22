@@ -1,5 +1,4 @@
 import React, {Component } from 'react';
-// import './Main.scss';
 import NoteContainer from '../NoteContainer/NoteContainer';
 
 class Main extends Component {
