@@ -10,7 +10,6 @@ class App extends Component {
         <div className="background">
           <Header />
           <Main />
-          <h1>APP</h1>
         </div>
       </div>
     );
