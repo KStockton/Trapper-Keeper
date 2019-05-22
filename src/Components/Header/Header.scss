@@ -1,0 +1,16 @@
+.header-component {
+  height: 100px;
+  margin-top: 0;
+  background-color: #1C1003;
+  position: fixed;
+  width: 100vw;
+
+  .title {
+    color: white;
+    margin: 5px auto;
+    margin-left: 10px;
+    float: left;
+    font-family: 'Lora', serif;
+    font-size: 40px;
+  }
+}
