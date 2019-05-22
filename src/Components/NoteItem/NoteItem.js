@@ -10,7 +10,6 @@ class NoteItem extends Component {
   }
 
   handleChange = (event) => {
-    console.log(event)
     const { name, value } = event.target
     this.setState({[name] : value})
   }
