@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NoteItem from "../NoteItem/NoteItem";
-// import "./NoteCard.scss";
 
 class NoteCard extends Component {
   state = { title: "" };
