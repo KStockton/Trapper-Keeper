@@ -12,9 +12,6 @@ import App from './Components/App/App'
 // const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 const store = createStore( rootReducer, composeWithDevTools())
 
-
-
-
 render(
   <Provider store={ store } >
   <BrowserRouter>
@@ -23,14 +20,5 @@ render(
   </Provider>,
   document.getElementById('root')
 )
-
-// const router = (
-//   <Provider store={store}>
-//     <BrowserRouter>
-//       <App />
-//     </BrowserRouter>
-//   </Provider>
-// )
-
 
 serviceWorker.unregister();

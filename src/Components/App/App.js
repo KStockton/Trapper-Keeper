@@ -4,10 +4,10 @@ import CorkBoard from "../../Assets/corkboard.jpg";
 import NoteContainer from "../NoteContainer/NoteContainer";
 import { Route, Switch } from "react-router-dom";
 import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
-// import fetchData from "../../Api/fetchData";
 
 class App extends Component {
   componentDidMount() {
+    fetchAllNotes();
   }
 
   render() {

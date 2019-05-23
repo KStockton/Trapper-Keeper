@@ -1,7 +1,7 @@
 import { endPoint } from "../utilities";
 
 export const fetchEditNote = note => {
-  const url = `${endPoint}/notes/${note.id}`;
+  const url = `${endPoint}/api/notes/${note.id}`;
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
