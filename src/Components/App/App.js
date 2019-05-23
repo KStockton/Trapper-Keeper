@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import Main from "../Main/Main";
 import Header from "../Header/Header";
 import CorkBoard from '../../Assets/corkboard.jpg'
+import NoteContainer from '../NoteContainer/NoteContainer';
+
 
 class App extends Component {
   render() {
@@ -11,7 +12,7 @@ class App extends Component {
             backgroundImage: `url(${CorkBoard})`
           }}>
           <Header />
-          <Main />
+          <NoteContainer />
         </div>
       </div>
     );
