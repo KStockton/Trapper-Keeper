@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+
+import { connect } from 'react-redux'
+
 import Header from "../Header/Header";
 import CorkBoard from '../../Assets/corkboard.jpg'
 import NoteContainer from '../NoteContainer/NoteContainer';
@@ -23,4 +26,15 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {  }
+}
+
+const mapDispatchToProps=(dispatch) => {
+  return {
+    
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
+
