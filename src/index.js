@@ -4,7 +4,7 @@ import './Sass/index.scss';
 import App from './Components/App/App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import { Router } from 'react-router'
+import { BrowserRouter } from 'react-router-dom'
 import { createStore } from 'redux';
 import { composeWithDevTools } from "redux-devtools-extension";
 import { rootReducer } from './Reducers/index'
@@ -14,9 +14,9 @@ const store = createStore( rootReducer, composeWithDevTools())
 
 const router = (
   <Provider store={store}>
-    <Router>
+    <BrowserRouter>
       <App />
-    </Router>
+    </BrowserRouter>
   </Provider>
 )
 
