@@ -16,6 +16,8 @@ class NoteItem extends Component {
 
   render() {
     const { listItem } = this.state;
+    const { tasks } = this.props;
+    console.log(tasks);
     return (
       <div className="note-item-component">
         <input type="checkbox" />
@@ -24,7 +26,7 @@ class NoteItem extends Component {
           type="text"
           placeholder="List Item"
           className="list-item"
-          value={this.state.listItem}
+          value={tasks.message}
           onChange={this.handleChange}
         />
         <button className={listItem !== "" ? "no-content" : "remove-content"}>

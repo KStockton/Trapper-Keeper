@@ -14,19 +14,20 @@ class NoteCard extends Component {
   };
 
   render() {
-    console.log('notecard')
+    const {title, tasks} = this.props.data
+    const listItems = tasks.map(task => <NoteItem key={task.id} tasks={task} />)
     return (
       <div className="note-card-component">
         <section className="note-card">
           <input
             type="text"
             className="note-title"
-            value={this.state.title}
+            value={title}
             onChange={this.handleChange}
             placeholder="Title"
             name="title"
           />
-          <NoteItem />
+          {listItems}
           <input
             type="submit"
             className="btn"
