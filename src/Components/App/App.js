@@ -6,9 +6,6 @@ import { Route, Switch } from "react-router-dom";
 import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
 
 class App extends Component {
-  componentDidMount() {
-    fetchAllNotes();
-  }
 
   render() {
     return (
@@ -21,7 +18,7 @@ class App extends Component {
         >
           <Header />
           <Switch>
-            <Route to="/" component={NoteContainer} />
+            <Route to="/" component={NoteContainer}/>
           </Switch>
         </div>
       </div>

@@ -14,6 +14,7 @@ class NoteCard extends Component {
   };
 
   render() {
+    console.log('notecard')
     return (
       <div className="note-card-component">
         <section className="note-card">
