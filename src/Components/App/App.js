@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import Header from "../Header/Header";
 import CorkBoard from '../../Assets/corkboard.jpg'
 import NoteContainer from '../NoteContainer/NoteContainer';
+import {Route, Switch} from 'react-router-dom'
 
 
 class App extends Component {
@@ -15,7 +16,10 @@ class App extends Component {
             backgroundImage: `url(${CorkBoard})`
           }}>
           <Header />
-          <NoteContainer />
+          <Switch>
+          <Route to="/" component={NoteContainer}/>
+
+          </Switch>
         </div>
       </div>
     );
