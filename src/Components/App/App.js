@@ -2,13 +2,10 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import CorkBoard from "../../Assets/corkboard.jpg";
 import NoteContainer from "../NoteContainer/NoteContainer";
-import {Route, Switch} from 'react-router-dom';
-// import fetchData from "../../Api/fetchData";
+import { Route, Switch } from "react-router-dom";
+import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
 
 class App extends Component {
-
-  componentDidMount() {
-  }
 
   render() {
     return (
@@ -21,7 +18,7 @@ class App extends Component {
         >
           <Header />
           <Switch>
-            <Route to='/' component={NoteContainer} />
+            <Route to="/" component={NoteContainer}/>
           </Switch>
         </div>
       </div>
