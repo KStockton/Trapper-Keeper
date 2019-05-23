@@ -8,7 +8,6 @@ import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
 
 class App extends Component {
   componentDidMount() {
-    console.log(fetchAllNotes())
   }
 
   render() {
