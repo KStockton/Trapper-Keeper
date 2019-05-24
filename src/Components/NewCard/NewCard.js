@@ -16,6 +16,18 @@ export default class NewCard extends Component {
       this.setState({[ name ]: value } )
   }
 
+  handleComplete = (event) => {
+    const { notes } = this.state
+    let  { id } = event.target
+    id = parseInt(id)
+
+    const togglecomplete = notes.find(note => (note.id === id))
+    togglecomplete.completed = !togglecomplete.completed
+      this.setState({notes})
+  
+
+  }
+
   
 handleKeyPress = () => {
   const {title, listItem, notes} = this.state
@@ -28,12 +40,12 @@ handleKeyPress = () => {
 
   render() {
     const { notes} = this.state
-    console.log(notes)
+  
     let todos = notes.filter(note => note.completed === false).map(incomplete => {
       return <section key={incomplete.id}>
-              <i class="material-icons" onClick={this.handleComplete}>check_box_outline_blank</i>
+              <i className="material-icons" id={incomplete.id} onClick={this.handleComplete}>check_box_outline_blank</i>
               <input className="material-icon" value={incomplete.text}/>
-              <i class="material-icons">delete_forever</i>
+              <i className="material-icons">delete_forever</i>
             </section>
 
     })
