@@ -1,6 +1,4 @@
-export const addNote = note => ({
-  type: "ADD_NOTE",
-  payload: {
-    note
-  }
+export const allNotes = notes => ({
+  type: "ALL_NOTES",
+  notes
 });
