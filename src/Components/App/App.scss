@@ -1,9 +1,10 @@
 .App {
   text-align: center;
+  // height: auto;
 
   .background {
-    height: 100vh;
+    // height: auto;
     width: 100vw;
-    position: fixed;
+    position: absolute;
   }
 }
