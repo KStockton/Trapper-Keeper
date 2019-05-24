@@ -5,25 +5,21 @@ import NotFound from "../NotFound/NotFound";
 import { Route, Switch } from "react-router-dom";
 import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
 import NewCard from '../NewCard/NewCard'
+import NoteCard from "../NoteCard/NoteCard";
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div
-          className="background"
-          style={{
-            backgroundImage: `url(${CorkBoard})`
-          }}
-          >
+
           <Header />
           <Switch>
-            <Route to="/" component={NoteContainer}/>
-            <Route path="" component={NotFound} />
+            <Route exact path to="/" component={NoteContainer}/>
+            <Route exact path="/notes/:id"  />
+            <Route exact path="/new-note" component={NewCard}/>
           </Switch>
           <NewCard/>
-        </div>
       </div>
     );
   }
