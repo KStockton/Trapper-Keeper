@@ -3,7 +3,7 @@ import { noteReducer } from './noteReducer';
 
 
 export const rootReducer = combineReducers({
-  note: noteReducer 
+  notes: noteReducer 
 })
 
 export default rootReducer;

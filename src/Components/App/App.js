@@ -11,12 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div
-          className="background"
-          style={{
-            backgroundImage: `url(${CorkBoard})`
-          }}
-          >
+        <div className="background">
           <Header />
           <Switch>
             <Route to="/" component={NoteContainer}/>

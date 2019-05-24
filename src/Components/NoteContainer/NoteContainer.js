@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import NoteCard from "../NoteCard/NoteCard";
 import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
+import { connect } from "react-redux";
+import { allNotes } from "../../Actions/index";
 
 class NoteContainer extends Component {
   state = { allNotes: [] };
 
   componentDidMount() {
-    fetchAllNotes().then(results => this.setState({ allNotes: results }));
+    fetchAllNotes().then(results => this.props.allNotes(results));
   }
 
   renderNotes = () => {
-    let { allNotes } = this.state;
-    return allNotes.map(note => <NoteCard key={note.id} data={note} />);
+    return this.props.notes.flat().map(note => <NoteCard key={note.id} data={note} />);
   };
 
   render() {
@@ -19,4 +20,15 @@ class NoteContainer extends Component {
   }
 }
 
-export default NoteContainer;
+export const mapStateToProps = state => ({
+  notes: state.notes
+});
+
+export const mapDispatchToProps = dispatch => ({
+  allNotes: notes => dispatch(allNotes(notes))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NoteContainer);

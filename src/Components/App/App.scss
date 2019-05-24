@@ -1,10 +1,12 @@
 .App {
   text-align: center;
 
-  .background {
-    background-image: url('../Assets/corkboard.jpg');
-    height: 100%;
-    width: 100vw;
-    position: absolute;
-  }
+}
+
+body {
+  background-image: url('../Assets/corkboard.jpg');
+  // background-size: contain;
+  height: 100%;
+  width: 100vw;
+  // position: absolute;
 }
