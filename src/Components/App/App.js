@@ -17,6 +17,7 @@ class App extends Component {
           <Switch>
             <Route exact path to="/" component={NoteContainer}/>
             <Route exact path="/notes/:id"  />
+            <Route exact path="/new-note" component={NewCard}/>
           </Switch>
           <NewCard/>
       </div>
