@@ -4,8 +4,7 @@
   align-items: center;
 }
 
-
-input[type=checkbox]:checked + input.list-item {
+.checked + input.list-item {
   text-decoration: line-through;
 }
 
@@ -28,4 +27,20 @@ input[type=checkbox]:checked + input.list-item {
   width: 90%;
   height: 30px;
   font-size: 15px;
+}
+
+.checked {
+  background-image: url('../Assets/checked.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 30px;
+  width: 30px;
+}
+
+.unchecked {
+  background-image: url('../Assets/unchecked.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 30px;
+  width: 30px;
 }

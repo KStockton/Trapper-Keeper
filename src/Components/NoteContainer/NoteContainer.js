@@ -4,10 +4,10 @@ import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
 
 class NoteContainer extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       allNotes: []
-    }
+    };
   }
 
   componentDidMount() {
@@ -22,8 +22,6 @@ class NoteContainer extends Component {
       notes = this.state.allNotes.map(note => (
         <NoteCard key={note.id} data={note} />
       ));
-    } else {
-      console.log('loading');
     }
 
     return <div className="note-container-component">{notes}</div>;

@@ -5,7 +5,8 @@ class NoteItem extends Component {
   constructor() {
     super();
     this.state = {
-      listItem: ""
+      listItem: "",
+      isComplete: false
     };
   }
 
@@ -14,17 +15,30 @@ class NoteItem extends Component {
     this.setState({ [name]: value });
   };
 
+  handleComplete = () => {
+    this.setState({ isComplete: !this.state.isComplete });
+  };
+
   render() {
-    const { listItem } = this.state;
+    const { listItem, isComplete } = this.state;
+    const { tasks } = this.props;
+    let checkBox;
+
+    if (isComplete === true) {
+      checkBox = <div className="checked" onClick={this.handleComplete} />;
+    } else {
+      checkBox = <div className="unchecked" onClick={this.handleComplete} />;
+    }
+
     return (
       <div className="note-item-component">
-        <input type="checkbox" />
+        {checkBox}
         <input
           name="listItem"
           type="text"
           placeholder="List Item"
           className="list-item"
-          value={this.state.listItem}
+          value={tasks.message}
           onChange={this.handleChange}
         />
         <button className={listItem !== "" ? "no-content" : "remove-content"}>
