@@ -1,8 +1,11 @@
 .note-card {
   background-color: #ffff88;
-  height: 200px;
-  width: 200px;
   border-radius: 5%;
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 10px;
+  overflow: hidden;
+  break-inside: avoid;
 
   .note-title {
     margin-top: 15px;
