@@ -1,8 +1,11 @@
 .note-card {
   background-color: #ffff88;
-  height: 200px;
-  width: 200px;
   border-radius: 5%;
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 10px;
+  overflow: hidden;
+  break-inside: avoid;
 
   .note-title {
     margin-top: 15px;
@@ -12,5 +15,29 @@
     height: 1em;
     font-size: 35px;
     padding-bottom: 15px;
+  }
+
+  .delete-btn {
+    background-image: url('../Assets/trashcan.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .red-delete-btn {
+    background-image: url('../Assets/red-waste-bin.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .note-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
 }

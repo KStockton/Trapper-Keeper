@@ -1,6 +1,30 @@
 .note-container-component {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 120px 0 0 20px; 
-  grid-gap: 20px;
+  width: 1200px;
+  margin: 120px auto;
+  columns: 4;
+  column-gap: 40px;
+}
+
+@media (max-width: 1200px)
+{
+  .note-container-component {
+    columns: 3;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+    padding: 20px 20px 20px 0;
+  }
+}
+
+@media (max-width: 768px)
+{
+  .note-container-component {
+    columns: 2;
+  }
+}
+
+@media (max-width: 480px)
+{
+  .note-container-component {
+    columns: 1;
+  }
 }
