@@ -1,14 +1,8 @@
 .note-container-component {
-  // display: grid;
-  // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  // margin: 120px 50px 0 50px; 
-  // grid-gap: 20px;
-  // grid-auto-flow: row;
   width: 1200px;
   margin: 120px auto;
   columns: 4;
   column-gap: 40px;
-
 }
 
 @media (max-width: 1200px)

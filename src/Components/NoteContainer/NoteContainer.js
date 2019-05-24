@@ -3,28 +3,19 @@ import NoteCard from "../NoteCard/NoteCard";
 import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
 
 class NoteContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      allNotes: []
-    };
-  }
+  state = { allNotes: [] };
 
   componentDidMount() {
     fetchAllNotes().then(results => this.setState({ allNotes: results }));
   }
 
-  render() {
+  renderNotes = () => {
     let { allNotes } = this.state;
-    let notes;
+    return allNotes.map(note => <NoteCard key={note.id} data={note} />);
+  };
 
-    if (allNotes.length) {
-      notes = this.state.allNotes.map(note => (
-        <NoteCard key={note.id} data={note} />
-      ));
-    }
-
-    return <div className="note-container-component">{notes}</div>;
+  render() {
+    return <div className="note-container-component">{this.renderNotes()}</div>;
   }
 }
 

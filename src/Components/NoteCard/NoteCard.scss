@@ -16,4 +16,28 @@
     font-size: 35px;
     padding-bottom: 15px;
   }
+
+  .delete-btn {
+    background-image: url('../Assets/trashcan.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .red-delete-btn {
+    background-image: url('../Assets/red-waste-bin.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .note-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
