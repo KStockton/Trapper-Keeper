@@ -1,0 +1,14 @@
+.NewCard-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.todo {
+  overflow: hidden;
+  background: none;
+  border: none;
+}
+
+.completed {
+  text-decoration: line-through;
+}
