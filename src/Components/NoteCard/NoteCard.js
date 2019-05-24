@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import NoteItem from "../NoteItem/NoteItem";
 import { fetchDeleteNote } from "../../Api/fetch/fetchDeleteNote";
+import { Link } from 'react-router-dom'
+
 
 class NoteCard extends Component {
   state = { title: "", delete: false };
@@ -27,6 +29,7 @@ class NoteCard extends Component {
     const { title, id } = this.props.data;
 
     return (
+      <Link to={`notes/${id}`}>
       <div className="note-card-component">
         <section className="note-card">
           <input
@@ -53,6 +56,7 @@ class NoteCard extends Component {
           </section>
         </section>
       </div>
+      </Link>
     );
   }
 }
