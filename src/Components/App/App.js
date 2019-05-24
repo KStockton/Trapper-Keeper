@@ -4,6 +4,7 @@ import CorkBoard from "../../Assets/corkboard.jpg";
 import NoteContainer from "../NoteContainer/NoteContainer";
 import { Route, Switch } from "react-router-dom";
 import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
+import NewCard from '../NewCard/NewCard'
 
 class App extends Component {
 
@@ -15,11 +16,13 @@ class App extends Component {
           style={{
             backgroundImage: `url(${CorkBoard})`
           }}
-        >
+          >
           <Header />
           <Switch>
             <Route to="/" component={NoteContainer}/>
+            
           </Switch>
+          <NewCard/>
         </div>
       </div>
     );

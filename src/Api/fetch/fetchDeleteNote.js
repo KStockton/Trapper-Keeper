@@ -1,7 +1,7 @@
-import { endPoint } from "../utilities";
+import { BASE_URL } from "../utilities";
 
 export const fetchDeleteNote = id => {
-  const url = `${endPoint}/api/v1/notes/${id}`;
+  const url = `${BASE_URL}/api/v1/notes/${id}`;
   const init = {
     method: "DELETE",
     headers: { "Content-Type": "application/json" }

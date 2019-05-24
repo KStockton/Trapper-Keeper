@@ -9,13 +9,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { rootReducer } from './Reducers/index'
 import App from './Components/App/App'
 
-// const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 const store = createStore( rootReducer, composeWithDevTools())
 
 render(
   <Provider store={ store } >
-  <BrowserRouter>
-    <App />
+    <BrowserRouter>
+      <App />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
