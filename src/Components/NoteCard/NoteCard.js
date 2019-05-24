@@ -10,12 +10,14 @@ class NoteCard extends Component {
   };
 
   handleSubmit = () => {
-    console.log('YO')
+    console.log("YO");
   };
 
   render() {
-    const {title, tasks} = this.props.data
-    const listItems = tasks.map(task => <NoteItem key={task.id} tasks={task} />)
+    const { title, tasks } = this.props.data;
+    const listItems = tasks.map(task => (
+      <NoteItem key={task.id} tasks={task} />
+    ));
     return (
       <div className="note-card-component">
         <section className="note-card">

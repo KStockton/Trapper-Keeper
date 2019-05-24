@@ -2,8 +2,8 @@
   text-align: center;
 
   .background {
-    height: 100vh;
+    background-image: url('../Assets/corkboard.jpg');
     width: 100vw;
-    position: fixed;
+    position: absolute;
   }
 }

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import "./NoteItem.scss";
 
 class NoteItem extends Component {
   constructor() {

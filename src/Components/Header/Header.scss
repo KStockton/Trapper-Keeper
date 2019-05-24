@@ -37,6 +37,10 @@
     background-color: #1C1003;
     cursor: pointer;
 
+    &:focus {
+      outline: none;
+    }
+
     &:hover {
       opacity: .6;
     }
