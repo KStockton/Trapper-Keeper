@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { fetchAddNote } from '../../Api/fetch/fetchAddNote'
+import { Link } from 'react-router-dom'
 
 
 export default class NewCard extends Component {
@@ -31,8 +33,8 @@ export default class NewCard extends Component {
   };
 
   handleKeyPress = () => {
-    const { title, listItem, notes } = this.state;
-    const newNote = { id: Date.now(), title, text: listItem, completed: false };
+    const { listItem, notes } = this.state;
+    const newNote = { id: Date.now(), message: listItem, completed: false };
 
     this.setState({
       notes: [...notes, newNote],
@@ -46,9 +48,14 @@ export default class NewCard extends Component {
     id = parseInt(id);
 
     let editItem = notes.find(note => note.id === id);
-    editItem.text = value;
+    editItem.task = value;
     this.setState({ notes });
   };
+
+  handleSaveNote = () => {
+    fetchAddNote(this.state.title, this.state.notes)
+    .then(results => console.log(results))
+  }
 
   render() {
     const { notes } = this.state;
@@ -64,7 +71,7 @@ export default class NewCard extends Component {
             >
               check_box_outline_blank
             </i>
-            <input className="todo" value={incomplete.text} />
+            <input className="todo" value={incomplete.message} />
             <i className="material-icons">delete_forever</i>
           </section>
         );
@@ -76,13 +83,13 @@ export default class NewCard extends Component {
         return (
           <section key={complete.id}>
             <i
-              class="material-icons"
+              className="material-icons"
               id={complete.id}
               onClick={this.handleComplete}
             >
               check_box
             </i>
-            <input className="completed todo" value={complete.text} />
+            <input className="completed todo" value={complete.message} />
             <i className="material-icons">delete_forever</i>
           </section>
         );
@@ -111,6 +118,10 @@ export default class NewCard extends Component {
         </form>
         {todos}
         {complete}
+        <button onClick={()=> this.handleSaveNote()}>Save</button>
+        <Link to={"/"}>
+            <button>Return to all notes</button>
+        </Link>
       </div>
     );
   }

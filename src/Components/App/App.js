@@ -5,7 +5,6 @@ import NotFound from "../NotFound/NotFound";
 import { Route, Switch } from "react-router-dom";
 import NewCard from "../NewCard/NewCard";
 import ViewNote from "../ViewNote/ViewNote";
-import Home from "../Home/Home";
 
 import { connect } from "react-redux";
 
@@ -16,12 +15,11 @@ class App extends Component {
       <div className="App">
         <Header />
         <Switch>
-        <Route exact path='/' component={Home} />
-          <Route exact path='/notes' component={NoteContainer} />
+        <Route exact path='/' component={NoteContainer} />
           <Route path='/notes/:id' render={({ match }) => {const { id } = match.params;
             const note = this.props.notes.find(note => note.id === parseInt(id))
             if(note){return <ViewNote {...note} />}}}/>
-          <Route exact path="/new-note" component={NewCard} />
+          <Route path="/new-note" component={NewCard} />
           <Route path="" component={NotFound} />
         </Switch>
         {/* <NewCard /> */}
