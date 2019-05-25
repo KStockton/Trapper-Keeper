@@ -8,6 +8,7 @@ class NoteContainer extends Component {
   state = { allNotes: [] };
 
   componentDidMount() {
+    console.log('rendering')
     fetchAllNotes().then(results => this.props.allNotes(results));
   }
 
