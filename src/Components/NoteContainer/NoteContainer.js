@@ -3,6 +3,8 @@ import NoteCard from "../NoteCard/NoteCard";
 import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
 import { connect } from "react-redux";
 import { allNotes } from "../../Actions/index";
+import PropTypes from 'prop-types'
+
 
 export class NoteContainer extends Component {
   state = { allNotes: [] };

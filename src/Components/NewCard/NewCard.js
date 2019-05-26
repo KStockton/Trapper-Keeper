@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { fetchAddNote } from "../../Api/fetch/fetchAddNote";
 import { Link } from "react-router-dom";
 
-export default class NewCard extends Component {
+
+export class NewCard extends Component {
   state = { editList: "", title: "", listItem: "", notes: [] };
 
   handleChange = event => {
