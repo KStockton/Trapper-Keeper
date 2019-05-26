@@ -38,7 +38,7 @@ describe("fetch calls", () => {
       };
     });
     it("should take an expected URL;", async () => {
-      await fetchAllNotes(URL, mockGET);
+      await fetchAllNotes(mockGET);
       expect(fetch).toHaveBeenCalledWith(URL);
     });
 
@@ -83,24 +83,65 @@ describe("fetch calls", () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(mockBody)
       };
-
     });
 
     it("should add a new note to notes", async () => {
-      const result = await fetchAddNote(URL, mockPost);
+      const result = await fetchAddNote(mockPost);
       expect(result).toEqual(expected);
     });
 
     it("should thrown an error if the note is missing title or tasks", async () => {
-        window.fetch = jest.fn(() => Promise.resolve({
-            status: 422,
-            ok: false,
-            json: jest.fn(() => Promise.resolve('Note must include Title and Tasks'))
-          }));
-          const expected = new Error("Note must include Title and Tasks");
-          await expect(fetchAddNote(URL, mockPost)).rejects.toEqual(expected); 
-      });
-
-    it("", () => {});
+      window.fetch = jest.fn(() =>
+        Promise.resolve({
+          status: 422,
+          ok: false,
+          json: jest.fn(() =>
+            Promise.resolve("Note must include Title and Tasks")
+          )
+        })
+      );
+      const expected = new Error("Note must include Title and Tasks");
+      await expect(fetchAddNote(mockPost)).rejects.toEqual(expected);
+    });
   });
+
+  describe('fetchDeleteNote', () => {
+    let mockDelete;
+    let expected;
+    beforeEach(() => {
+      expected = [
+        { id: 1, 
+          title: "A test",
+          tasks: [{ id: 77, text: "a test" }], 
+          title: "Testing" },
+        {
+          id: 23,
+          title: "another test",
+          tasks: [{ id: 65, text: "testing notes" }],
+          title: "Testing also"
+        }
+      ];
+      mockDelete = {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" }
+      };
+    });
+      it.skip('should delete the correct note', async () => {
+        const result = await fetchDeleteNote(1);
+        expect(result).toEqual([{"id": 22, "tasks": [{"id": 65, "text": "testing notes"}], "title": "Testing also"}]);
+      })
+  })
+
+  describe('fetchEditNote', () => {
+      let editNote;
+      beforeEach(() => {
+        editNote ={ id: 22, 
+            tasks: [{ id: 77, text: "a test" }], 
+            title: "Turtles" } 
+      })
+      it.skip('should edit the correct note', async () => {
+        const result = await fetchEditNote(editNote);
+        expect(result).toBe(7)
+      })
+  })
 });

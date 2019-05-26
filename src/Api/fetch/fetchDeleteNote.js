@@ -1,6 +1,6 @@
 import { BASE_URL } from "../utilities";
 
-export const fetchDeleteNote = id => {
+export const fetchDeleteNote = (id) => {
   const url = `${BASE_URL}/api/v1/notes/${id}`;
   const init = {
     method: "DELETE",
