@@ -1,12 +1,16 @@
 .App {
   text-align: center;
-
 }
 
 body {
   background-image: url('../Assets/corkboard.jpg');
-  // background-size: contain;
   height: 100%;
   width: 100vw;
-  // position: absolute;
+}
+
+.center-new-card {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 200px 0;
 }

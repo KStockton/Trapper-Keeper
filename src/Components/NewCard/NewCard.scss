@@ -1,3 +1,41 @@
+.new-card-component {
+  background-color: #ffff88;
+  border-radius: 2%;
+  width: 50%;
+  margin: 0 0 20px;
+}
+
+.add-new-note {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.plus {
+  background-image: url('../Assets/add.svg');
+  background-size: contain;
+  height: 15px;
+  width: 15px;
+  margin: 9px 0 0 5px;
+  padding-right: 15px;
+  background-repeat: no-repeat;
+  opacity: .7;
+}
+
+.note-title {
+  margin-top: 15px;
+  background-color: #ffff88;
+  border: none;
+  width: 99%;
+  height: 1em;
+  font-size: 35px;
+  padding-bottom: 15px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 .NewCard-form {
   display: flex;
   align-items: center;
@@ -7,6 +45,7 @@
   overflow: hidden;
   background: none;
   border: none;
+  width: 100%;
 }
 
 .completed {

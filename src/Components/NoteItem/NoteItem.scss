@@ -27,6 +27,10 @@
   width: 90%;
   height: 30px;
   font-size: 15px;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .checked {

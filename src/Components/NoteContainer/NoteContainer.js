@@ -5,15 +5,14 @@ import { connect } from "react-redux";
 import { allNotes } from "../../Actions/index";
 
 class NoteContainer extends Component {
-  state = { allNotes: [] };
-
   componentDidMount() {
-    console.log('rendering')
     fetchAllNotes().then(results => this.props.allNotes(results));
   }
 
   renderNotes = () => {
-    return this.props.notes.flat().map(note => <NoteCard key={note.id} data={note} />);
+    return this.props.notes
+      .flat()
+      .map(note => <NoteCard key={note.id} data={note} />);
   };
 
   render() {

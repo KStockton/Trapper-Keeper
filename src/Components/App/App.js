@@ -8,21 +8,30 @@ import ViewNote from "../ViewNote/ViewNote";
 
 import { connect } from "react-redux";
 
-
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Header />
         <Switch>
-        <Route exact path='/' component={NoteContainer} />
-          <Route path='/notes/:id' render={({ match }) => {const { id } = match.params;
-            const note = this.props.notes.find(note => note.id === parseInt(id))
-            if(note){return <ViewNote {...note} />}}}/>
-          <Route path="/new-note" component={NewCard} />
+          <Route exact path="/" component={NoteContainer} />
+          <Route
+            path="/notes/:id"
+            render={({ match }) => {
+              const { id } = match.params;
+              const note = this.props.notes.find(
+                note => note.id === parseInt(id)
+              );
+              if (note) {
+                return <ViewNote {...note} />;
+              }
+            }}
+          />
+          <div className="center-new-card">
+            <Route path="/new-note" component={NewCard} />
+          </div>
           <Route path="" component={NotFound} />
         </Switch>
-        {/* <NewCard /> */}
       </div>
     );
   }
@@ -31,7 +40,6 @@ class App extends Component {
 export const mapStateToProps = state => ({
   notes: state.notes
 });
-
 
 export default connect(
   mapStateToProps,
