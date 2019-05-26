@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import { fetchAddNote } from '../../Api/fetch/fetchAddNote'
 import { Link } from 'react-router-dom'
 
-
-export default class NewCard extends Component {
+export class NewCard extends Component {
   constructor() {
     super();
-
     this.state = {
       editList: "",
       title: "",
@@ -14,8 +12,6 @@ export default class NewCard extends Component {
       notes: []
     };
   }
-
-  componentDidMount() {}
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -26,7 +22,6 @@ export default class NewCard extends Component {
     const { notes } = this.state;
     let { id } = event.target;
     id = parseInt(id);
-
     const togglecomplete = notes.find(note => note.id === id);
     togglecomplete.completed = !togglecomplete.completed;
     this.setState({ notes });
@@ -99,6 +94,7 @@ export default class NewCard extends Component {
       <div>
         <form className="NewCard-form">
           <input
+            id="title"
             type="text"
             name="title"
             value={this.state.title}
@@ -126,3 +122,5 @@ export default class NewCard extends Component {
     );
   }
 }
+
+export default NewCard;
