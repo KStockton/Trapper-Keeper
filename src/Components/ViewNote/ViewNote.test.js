@@ -1,13 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import NotFound from './NotFound'
+import ViewNote from './ViewNote'
 
-describe('NotFound', () => {
+
+describe('ViewNote', () => {
     let wrapper;
     beforeEach(() => {
-        wrapper = shallow(<NotFound/>)
+        wrapper = shallow(<ViewNote/>)
     })
     it('should match snapshot', () => {
-        expect(wrapper).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
+     
     })
-});
+})
