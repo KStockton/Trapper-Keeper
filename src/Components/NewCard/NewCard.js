@@ -1,17 +1,9 @@
 import React, { Component } from "react";
-import { fetchAddNote } from '../../Api/fetch/fetchAddNote'
-import { Link } from 'react-router-dom'
+import { fetchAddNote } from "../../Api/fetch/fetchAddNote";
+import { Link } from "react-router-dom";
 
-export class NewCard extends Component {
-  constructor() {
-    super();
-    this.state = {
-      editList: "",
-      title: "",
-      listItem: "",
-      notes: []
-    };
-  }
+export default class NewCard extends Component {
+  state = { editList: "", title: "", listItem: "", notes: [] };
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -48,24 +40,22 @@ export class NewCard extends Component {
   };
 
   handleSaveNote = () => {
-    fetchAddNote(this.state.title, this.state.notes)
-    .then(results => console.log(results))
-  }
+    fetchAddNote(this.state.title, this.state.notes);
+  };
 
   render() {
     const { notes } = this.state;
+
     let todos = notes
       .filter(note => note.completed === false)
       .map(incomplete => {
         return (
-          <section key={incomplete.id}>
-            <i
-              className="material-icons"
+          <section key={incomplete.id} className="note-item-component">
+            <div
+              className="unchecked"
               id={incomplete.id}
               onClick={this.handleComplete}
-            >
-              check_box_outline_blank
-            </i>
+            />
             <input className="todo" value={incomplete.message} />
             <i className="material-icons">delete_forever</i>
           </section>
@@ -76,14 +66,12 @@ export class NewCard extends Component {
       .filter(note => note.completed === true)
       .map(complete => {
         return (
-          <section key={complete.id}>
-            <i
-              className="material-icons"
+          <section key={complete.id} className="note-item-component">
+            <div
+              className="checked"
               id={complete.id}
               onClick={this.handleComplete}
-            >
-              check_box
-            </i>
+            />
             <input className="completed todo" value={complete.message} />
             <i className="material-icons">delete_forever</i>
           </section>
@@ -91,33 +79,42 @@ export class NewCard extends Component {
       });
 
     return (
-      <div>
+      <div className="new-card-component">
         <form className="NewCard-form">
           <input
             id="title"
             type="text"
             name="title"
+            className="note-title"
             value={this.state.title}
-            placeholder="title"
+            placeholder="Title"
             onChange={this.handleChange}
           />
-          <input
-            type="text"
-            name="listItem"
-            value={this.state.listItem}
-            placeholder="listItem"
-            onChange={this.handleChange}
-            onKeyPress={event => {
-              if (event.key === "Enter") this.handleKeyPress();
-            }}
-          />
+          <section className="add-new-note">
+            <div className="plus" />
+            <input
+              type="text"
+              name="listItem"
+              className="list-item"
+              value={this.state.listItem}
+              placeholder="List Item"
+              onChange={this.handleChange}
+              onKeyPress={event => {
+                if (event.key === "Enter") this.handleKeyPress();
+              }}
+            />
+          </section>
         </form>
         {todos}
         {complete}
-        <button onClick={()=> this.handleSaveNote()}>Save</button>
-        <Link to={"/"}>
-            <button>Return to all notes</button>
-        </Link>
+        {this.state.notes.length ? (
+          <React.Fragment>
+            <button onClick={() => this.handleSaveNote()}>Save</button>
+            <Link to={"/"}>
+              <button>Return to all notes</button>
+            </Link>
+          </React.Fragment>
+        ) : null}
       </div>
     );
   }

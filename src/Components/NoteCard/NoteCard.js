@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import NoteItem from "../NoteItem/NoteItem";
 import { fetchDeleteNote } from "../../Api/fetch/fetchDeleteNote";
-import { Link } from 'react-router-dom'
-
+import { Link } from "react-router-dom";
 
 class NoteCard extends Component {
   state = { title: "", delete: false };
@@ -13,7 +12,6 @@ class NoteCard extends Component {
   };
 
   renderListItems = () => {
-    console.log('thispropsdat',this.props.data)
     const { list } = this.props.data;
     return list.map(task => <NoteItem key={task.id} tasks={task} />);
   };
@@ -23,7 +21,7 @@ class NoteCard extends Component {
   };
 
   handleDelete = noteId => {
-    fetchDeleteNote(noteId)
+    fetchDeleteNote(noteId);
   };
 
   render() {
@@ -31,32 +29,35 @@ class NoteCard extends Component {
 
     return (
       <Link to={`notes/${id}`}>
-      <div className="note-card-component">
-        <section className="note-card">
-          <input
-            type="text"
-            className="note-title"
-            value={title}
-            onChange={this.handleChange}
-            placeholder="Title"
-            name="title"
-          />
-          {this.renderListItems()}
-          <section className="note-options">
-            <input type="submit" className="btn" value="Save" />
-            {this.state.delete === true ? (
-              <div
-                className="red-delete-btn"
-                onMouseOver={this.handleMouseOver}
-                onMouseLeave={this.handleMouseOver}
-                onClick={() => this.handleDelete(id)}
-              />
-            ) : (
-              <div className="delete-btn" onMouseOver={this.handleMouseOver} />
-            )}
+        <div className="note-card-component">
+          <section className="note-card">
+            <input
+              type="text"
+              className="note-title"
+              value={title}
+              onChange={this.handleChange}
+              placeholder="Title"
+              name="title"
+            />
+            {this.renderListItems()}
+            <section className="note-options">
+              <input type="submit" className="btn" value="Save" />
+              {this.state.delete === true ? (
+                <div
+                  className="red-delete-btn"
+                  onMouseOver={this.handleMouseOver}
+                  onMouseLeave={this.handleMouseOver}
+                  onClick={() => this.handleDelete(id)}
+                />
+              ) : (
+                <div
+                  className="delete-btn"
+                  onMouseOver={this.handleMouseOver}
+                />
+              )}
+            </section>
           </section>
-        </section>
-      </div>
+        </div>
       </Link>
     );
   }
