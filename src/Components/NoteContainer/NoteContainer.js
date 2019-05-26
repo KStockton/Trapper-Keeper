@@ -28,6 +28,11 @@ export const mapDispatchToProps = dispatch => ({
   allNotes: notes => dispatch(allNotes(notes))
 });
 
+NoteContainer.propTypes = {
+  notes: PropTypes.array,
+  allNotes: PropTypes.func
+}
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

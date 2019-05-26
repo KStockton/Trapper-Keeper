@@ -34,6 +34,10 @@ export const mapStateToProps = state => ({
   notes: state.notes
 });
 
+App.propTypes = {
+  notes: PropTypes.array,
+}
+
 
 export default connect(
   mapStateToProps,
