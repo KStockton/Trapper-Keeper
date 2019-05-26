@@ -6,6 +6,8 @@ import { Route, Switch } from "react-router-dom";
 import NewCard from "../NewCard/NewCard";
 import ViewNote from "../ViewNote/ViewNote";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types'
+
 
 export class App extends Component {
   render() {
