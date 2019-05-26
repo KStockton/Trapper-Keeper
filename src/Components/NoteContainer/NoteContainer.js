@@ -4,7 +4,9 @@ import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
 import { connect } from "react-redux";
 import { allNotes } from "../../Actions/index";
 
-class NoteContainer extends Component {
+export class NoteContainer extends Component {
+  state = { allNotes: [] };
+
   componentDidMount() {
     fetchAllNotes().then(results => this.props.allNotes(results));
   }
@@ -27,6 +29,11 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   allNotes: notes => dispatch(allNotes(notes))
 });
+
+NoteContainer.propTypes = {
+  notes: PropTypes.array,
+  allNotes: PropTypes.func
+}
 
 export default connect(
   mapStateToProps,

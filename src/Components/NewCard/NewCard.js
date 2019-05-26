@@ -14,7 +14,6 @@ export default class NewCard extends Component {
     const { notes } = this.state;
     let { id } = event.target;
     id = parseInt(id);
-
     const togglecomplete = notes.find(note => note.id === id);
     togglecomplete.completed = !togglecomplete.completed;
     this.setState({ notes });
@@ -83,6 +82,7 @@ export default class NewCard extends Component {
       <div className="new-card-component">
         <form className="NewCard-form">
           <input
+            id="title"
             type="text"
             name="title"
             className="note-title"
@@ -119,3 +119,5 @@ export default class NewCard extends Component {
     );
   }
 }
+
+export default NewCard;

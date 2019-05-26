@@ -5,10 +5,9 @@ import NotFound from "../NotFound/NotFound";
 import { Route, Switch } from "react-router-dom";
 import NewCard from "../NewCard/NewCard";
 import ViewNote from "../ViewNote/ViewNote";
-
 import { connect } from "react-redux";
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div className="App">
@@ -40,6 +39,10 @@ class App extends Component {
 export const mapStateToProps = state => ({
   notes: state.notes
 });
+
+App.propTypes = {
+  notes: PropTypes.array,
+}
 
 export default connect(
   mapStateToProps,
