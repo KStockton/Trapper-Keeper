@@ -1,61 +1,106 @@
-import { fetchAddNote } from './fetchAddNote';
-import { fetchAllNotes } from './fetchAllNotes';
-import { fetchDeleteNote } from './fetchDeleteNote';
-import { fetchEditNote } from './fetchEditNote';
+import { fetchAllNotes } from "./fetchAllNotes";
+import { fetchAddNote } from "./fetchAddNote";
+import { fetchDeleteNote } from "./fetchDeleteNote";
+import { fetchEditNote } from "./fetchEditNote";
 
-
-
-describe('fetchData', () => {
-  let mockBody
-  let mockNote
-  let url
+describe("fetch calls", () => {
+  let mockNotes;
+  let URL;
 
   beforeEach(() => {
-    url = "localhost:3001/api/v1/notes";
-    mockNote = { 
-      id: 1,
-      title: 'Team To-Do',
-      list: [
-        { id: 'a',
-          text: 'Show project at demo night',
-          isComplete: false
-        }
-      ]
-    };
-
-    mockBody = {
-      method: 'GET',
-      body: JSON.stringify(),
-      headers:{
-        'Content-Type': 'application/json'
+    URL = "http://localhost:3000/api/v1/notes";
+    mockNotes = [
+      { id: 1, title: "Testing", tasks: [{ id: 77, text: "a test" }] },
+      {
+        id: 22,
+        title: "Testing also",
+        tasks: [{ id: 65, text: "testing notes" }]
       }
-    }
-
-    fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      ok: true,
-      status: 200,
-      json: () => Promise.resolve(mockNote)
-    }))
-  })
-
-  it('should take an expected url', async () => {
-    await fetchData(url, mockBody)
-    expect(fetch).toHaveBeenCalledWith(url, mockBody)
-  })
-
-  it('should return expected data', async () => {
-    const result = await fetchData(url, mockBody);
-    expect(result).toEqual(mockNote);
+    ];
+    fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        ok: true,
+        status: 200,
+        json: () => Promise.resolve(mockNotes)
+      })
+    );
   });
 
-  it('should throw an error if everything is not okay', async () => {
-    window.fetch = jest.fn(() => Promise.resolve({
-      status: 422,
-      ok: false,
-      json: jest.fn(() => Promise.resolve('Title is required'))
-    }));
-    const expected = new Error('Title is required');
-    await expect(fetchData(url, mockBody)).rejects.toEqual(expected);
+  describe("fetchAllNotes", () => {
+    let mockGET;
+    beforeEach(() => {
+      mockGET = {
+        method: "GET",
+        body: JSON.stringify(),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      };
+    });
+    it("should take an expected URL;", async () => {
+      await fetchAllNotes(URL, mockGET);
+      expect(fetch).toHaveBeenCalledWith(URL);
+    });
+
+    it("should return expected notes", async () => {
+      const result = await fetchAllNotes(URL, mockGET);
+      expect(result).toEqual(mockNotes);
+    });
+
+    it("should throw an error if something goes wrong on user end", async () => {
+      window.fetch = jest.fn(() =>
+        Promise.resolve({
+          status: 422,
+          ok: false,
+          json: jest.fn(() => Promise.resolve("Failed to get notes"))
+        })
+      );
+      const expected = new Error("Failed to get notes");
+      await expect(fetchAllNotes(URL, mockGET)).rejects.toEqual(expected);
+    });
   });
 
-})
+  describe("fetchAddNote", () => {
+    let mockPost;
+    let mockBody;
+    let expected;
+    beforeEach(() => {
+      expected = [
+        { id: 1, tasks: [{ id: 77, text: "a test" }], title: "Testing" },
+        {
+          id: 22,
+          tasks: [{ id: 65, text: "testing notes" }],
+          title: "Testing also"
+        }
+      ];
+      mockBody = {
+        id: 22,
+        title: "Testing also",
+        tasks: [{ id: 65, text: "testing notes" }]
+      };
+      mockPost = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(mockBody)
+      };
+
+    });
+
+    it("should add a new note to notes", async () => {
+      const result = await fetchAddNote(URL, mockPost);
+      expect(result).toEqual(expected);
+    });
+
+    it("should thrown an error if the note is missing title or tasks", async () => {
+        window.fetch = jest.fn(() => Promise.resolve({
+            status: 422,
+            ok: false,
+            json: jest.fn(() => Promise.resolve('Note must include Title and Tasks'))
+          }));
+          const expected = new Error("Note must include Title and Tasks");
+          await expect(fetchAddNote(URL, mockPost)).rejects.toEqual(expected); 
+      });
+
+    it("", () => {});
+  });
+});
