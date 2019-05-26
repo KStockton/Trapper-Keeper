@@ -5,9 +5,7 @@ import { connect } from "react-redux";
 import { allNotes } from "../../Actions/index";
 import PropTypes from 'prop-types'
 
-
 export class NoteContainer extends Component {
-  state = { allNotes: [] };
 
   componentDidMount() {
     fetchAllNotes().then(results => this.props.allNotes(results));

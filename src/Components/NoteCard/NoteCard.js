@@ -27,6 +27,8 @@ class NoteCard extends Component {
   render() {
     const { title, id } = this.props.data;
 
+    console.log(this.props)
+
     return (
       <Link to={`notes/${id}`}>
         <div className="note-card-component">

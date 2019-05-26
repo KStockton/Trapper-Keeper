@@ -3,6 +3,13 @@ import React, { Component } from "react";
 class NoteItem extends Component {
   state = { listItem: "", isComplete: false };
 
+  componentDidMount() {
+    const { tasks } = this.props;
+    this.setState({
+      isComplete: tasks.completed
+    });
+  }
+
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -15,6 +22,8 @@ class NoteItem extends Component {
   render() {
     const { listItem, isComplete } = this.state;
     const { tasks } = this.props;
+
+    console.log(tasks.completed);
 
     return (
       <div className="note-item-component">
