@@ -4,7 +4,7 @@ import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
 import { connect } from "react-redux";
 import { allNotes } from "../../Actions/index";
 
-class NoteContainer extends Component {
+export class NoteContainer extends Component {
   state = { allNotes: [] };
 
   componentDidMount() {
