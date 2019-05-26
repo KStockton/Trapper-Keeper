@@ -27,40 +27,28 @@ class NoteCard extends Component {
   render() {
     const { title, id } = this.props.data;
 
-    console.log(this.props)
-
     return (
-      <Link to={`notes/${id}`}>
-        <div className="note-card-component">
-          <section className="note-card">
-            <input
-              type="text"
-              className="note-title"
-              value={title}
-              onChange={this.handleChange}
-              placeholder="Title"
-              name="title"
-            />
-            {this.renderListItems()}
-            <section className="note-options">
-              <input type="submit" className="btn" value="Save" />
-              {this.state.delete === true ? (
-                <div
-                  className="red-delete-btn"
-                  onMouseOver={this.handleMouseOver}
-                  onMouseLeave={this.handleMouseOver}
-                  onClick={() => this.handleDelete(id)}
-                />
-              ) : (
-                <div
-                  className="delete-btn"
-                  onMouseOver={this.handleMouseOver}
-                />
-              )}
-            </section>
+      <div className="note-card-component">
+        <section className="note-card">
+          <div className="note-title">{title}</div>
+          {this.renderListItems()}
+          <section className="note-options">
+            <Link to={`notes/${id}`}>
+              <input type="submit" className="btn" value="Edit Note" />
+            </Link>
+            {this.state.delete === true ? (
+              <div
+                className="red-delete-btn"
+                onMouseOver={this.handleMouseOver}
+                onMouseLeave={this.handleMouseOver}
+                onClick={() => this.handleDelete(id)}
+              />
+            ) : (
+              <div className="delete-btn" onMouseOver={this.handleMouseOver} />
+            )}
           </section>
-        </div>
-      </Link>
+        </section>
+      </div>
     );
   }
 }

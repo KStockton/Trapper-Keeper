@@ -23,8 +23,6 @@ class NoteItem extends Component {
     const { listItem, isComplete } = this.state;
     const { tasks } = this.props;
 
-    console.log(tasks.completed);
-
     return (
       <div className="note-item-component">
         {isComplete === true ? (
@@ -32,14 +30,7 @@ class NoteItem extends Component {
         ) : (
           <div className="unchecked" onClick={this.handleComplete} />
         )}
-        <input
-          name="listItem"
-          type="text"
-          placeholder="List Item"
-          className="list-item"
-          value={tasks.message}
-          onChange={this.handleChange}
-        />
+        <p className="list-item">{tasks.message}</p>
         <button className={listItem !== "" ? "no-content" : "remove-content"}>
           x
         </button>
