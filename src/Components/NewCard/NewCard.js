@@ -13,11 +13,15 @@ export class NewCard extends Component {
 
   grabInfo = async () => {
     const { id } = this.props
-    
+
     if(id){
-    const response =  await fetchNote(id)
-    const { title, list } = response
-    this.setState({title, notes: list})
+      const response =  await fetchNote(id)
+      const { title, list } = response
+
+      this.setState({
+        title, 
+        notes: list
+      })
     }
   }
 
