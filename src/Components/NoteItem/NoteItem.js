@@ -3,6 +3,13 @@ import React, { Component } from "react";
 export class NoteItem extends Component {
   state = { listItem: "", isComplete: false };
 
+  componentDidMount() {
+    const { tasks } = this.props;
+    this.setState({
+      isComplete: tasks.completed
+    });
+  }
+
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -23,14 +30,7 @@ export class NoteItem extends Component {
         ) : (
           <div id="unchecked" className="unchecked" onClick={this.handleComplete} />
         )}
-        <input
-          name="listItem"
-          type="text"
-          placeholder="List Item"
-          className="list-item"
-          value={tasks.message}
-          onChange={this.handleChange}
-        />
+        <p className="list-item">{tasks.message}</p>
         <button className={listItem !== "" ? "no-content" : "remove-content"}>
           x
         </button>

@@ -6,6 +6,7 @@
   padding: 10px;
   overflow: hidden;
   break-inside: avoid;
+  text-decoration: none !important;
 
   .note-title {
     margin-top: 15px;
@@ -15,6 +16,7 @@
     height: 1em;
     font-size: 35px;
     padding-bottom: 15px;
+    text-decoration: none !important;
   }
 
   .delete-btn {

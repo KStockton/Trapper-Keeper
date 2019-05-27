@@ -1,17 +1,18 @@
 import { BASE_URL } from "../utilities";
 
-export const fetchDeleteNote = (id) => {
+export const fetchDeleteNote = async (id) => {
   const url = `${BASE_URL}/api/v1/notes/${id}`;
-  const init = {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" }
+  const options = {
+    method: "DELETE"
   };
-  return fetch(url, init).then(response => {
-    console.log(response)
-    if (!response.ok) {
+
+ const response = await fetch(url, options)
+   if (!response.ok) {
       throw Error("Failed to delete note");
     } else {
       return response.json();
-    }
-  });
+    } 
+    //removed below because it was causing an error that indicated we set headers twice, which is true from the backend.
+    // response.sendStatus(204);
+
 };
