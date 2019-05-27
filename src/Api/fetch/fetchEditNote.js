@@ -7,9 +7,7 @@ export const fetchEditNote = note => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(note)
   };
-  return fetch(url, options).then(response => 
-    {
-      console.log(response,'response')
+  return fetch(url, options).then(response => {
     if (!response.ok) {
       throw Error("Failed to edit note");
     } else {
