@@ -3,3 +3,7 @@ export const allNotes = notes => ({
   notes
 });
 
+export const deleteNote = id => ({
+  type: "DELETE_NOTE",
+  id
+})
