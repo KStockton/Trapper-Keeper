@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import NoteItem from "../NoteItem/NoteItem";
 import { fetchDeleteNote } from "../../Api/fetch/fetchDeleteNote";
 import { Link } from "react-router-dom";
-
+import { connect } from 'react-redux';
+import * as actions from '../../Actions/index'
+//setstate error  in handleDelete function but havent done anything to the error if it is not null
 class NoteCard extends Component {
-  state = { title: "", delete: false };
+  state = { title: "", delete: false , error: null};
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -20,8 +22,13 @@ class NoteCard extends Component {
     this.setState({ delete: !this.state.delete });
   };
 
-  handleDelete = noteId => {
-    fetchDeleteNote(noteId);
+  handleDelete = async (noteId) => {
+    try {
+      await fetchDeleteNote(noteId);
+      this.props.deleteNote(noteId)
+    } catch (error) {
+      this.setState({ error })
+    }
   };
 
   render() {
@@ -53,4 +60,8 @@ class NoteCard extends Component {
   }
 }
 
-export default NoteCard;
+export const mapDispatchToProps = (dispatch) => ({
+deleteNote: id => dispatch(actions.deleteNote(id))
+})
+
+export default connect(null, mapDispatchToProps) (NoteCard)
