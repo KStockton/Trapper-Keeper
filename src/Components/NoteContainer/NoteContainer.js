@@ -18,7 +18,16 @@ export class NoteContainer extends Component {
   };
 
   render() {
-    return <div className="note-container-component">{this.renderNotes()}</div>;
+    const{ notes } = this.props
+    console.log(this.props.notes)
+    return (
+      <div className="note-container-component">
+      {(notes.length) ? this.renderNotes() :  <section>
+        <p>Create a note above <span role="img" aria-label="smile">😊</span></p>
+      </section>}
+     
+    </div>
+    )
   }
 }
 
