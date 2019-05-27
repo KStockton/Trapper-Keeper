@@ -4,13 +4,14 @@ import NoteContainer from "../NoteContainer/NoteContainer";
 import NotFound from "../NotFound/NotFound";
 import { Route, Switch } from "react-router-dom";
 import NewCard from "../NewCard/NewCard";
-import ViewNote from "../ViewNote/ViewNote";
+// import ViewNote from "../ViewNote/ViewNote";
 import { connect } from "react-redux";
 import PropTypes from 'prop-types'
 
 
 export class App extends Component {
   render() {
+    const { notes } = this.props
     return (
       <div className="App">
         <Header />
@@ -20,11 +21,12 @@ export class App extends Component {
             path="/notes/:id"
             render={({ match }) => {
               const { id } = match.params;
-              const note = this.props.notes.find(
-                note => note.id === parseInt(id)
+              const note = notes.find(
+                // eslint-disable-next-line
+                note => note.id == id
               );
               if (note) {
-                return <ViewNote {...note} />;
+                return <NewCard {...note} />;
               }
             }}
           />
