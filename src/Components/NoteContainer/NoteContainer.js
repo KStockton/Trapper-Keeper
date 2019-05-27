@@ -19,7 +19,6 @@ export class NoteContainer extends Component {
 
   render() {
     const{ notes } = this.props
-    console.log(this.props.notes)
     return (
       <div className="note-container-component">
       {(notes.length) ? this.renderNotes() :  <section className="Note-container-start">

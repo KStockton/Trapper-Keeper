@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { fetchAddNote } from "../../Api/fetch/fetchAddNote";
+import { fetchNote } from '../../Api/fetch/fetchNote';
 import { Link } from "react-router-dom";
 
 export class NewCard extends Component {
@@ -12,9 +13,8 @@ export class NewCard extends Component {
 
   grabInfo = () => {
     const { id } = this.props
-    console.log(this.props.id)
     if(id){
-      
+      fetchNote(id)
     }
   }
 
