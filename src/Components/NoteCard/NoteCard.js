@@ -3,7 +3,7 @@ import NoteItem from "../NoteItem/NoteItem";
 import { fetchDeleteNote } from "../../Api/fetch/fetchDeleteNote";
 import { Link } from "react-router-dom";
 
-class NoteCard extends Component {
+export class NoteCard extends Component {
   state = { title: "", delete: false };
 
   handleChange = e => {
@@ -26,7 +26,6 @@ class NoteCard extends Component {
 
   render() {
     const { title, id } = this.props.data;
-
     return (
       <Link to={`notes/${id}`}>
         <div className="note-card-component">

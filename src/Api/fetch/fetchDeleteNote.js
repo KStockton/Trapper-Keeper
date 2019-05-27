@@ -7,6 +7,7 @@ export const fetchDeleteNote = (id) => {
     headers: { "Content-Type": "application/json" }
   };
   return fetch(url, init).then(response => {
+    console.log(response)
     if (!response.ok) {
       throw Error("Failed to delete note");
     } else {

@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 export class NewCard extends Component {
   state = { editList: "", title: "", listItem: "", notes: [] };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleComplete = event => {
+  handleComplete = (event) => {
     const { notes } = this.state;
     let { id } = event.target;
     id = parseInt(id);

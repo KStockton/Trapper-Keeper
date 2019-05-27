@@ -1,15 +1,17 @@
-import React from "react";
-import { shallow } from "enzyme";
-import NoteCard from "./NoteCard";
+import React from 'react'
+import { shallow } from 'enzyme'
+import { NoteCard } from './NoteCard'
 
 describe("NoteCard", () => {
   let wrapper;
-
+  let mockItem
   beforeEach(() => {
-    wrapper = shallow(<NoteCard />);
-  });
+    mockItem = {data:{title: "testing", id: 22}}
+    wrapper = shallow(<NoteCard props ={mockItem} />)
+  })
 
-  it("should match the snapshot", () => {
-    expect(wrapper).toMatchSnapshot();
-  });
-});
+  it('expect wrapper to match snapShot', () => {
+    expect(wrapper).toMatchSnapshot()
+  })
+
+})

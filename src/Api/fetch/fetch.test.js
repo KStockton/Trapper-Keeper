@@ -125,21 +125,21 @@ describe("fetch calls", () => {
         method: "DELETE",
         headers: { "Content-Type": "application/json" }
       };
-    });
-      it.skip('should delete the correct note', async () => {
-        const result = await fetchDeleteNote(1);
-        expect(result).toEqual([{"id": 22, "tasks": [{"id": 65, "text": "testing notes"}], "title": "Testing also"}]);
+    }); 
+      it('should delete the correct note', async () => {
+        const result = await fetchDeleteNote(25);
+        expect(result).toEqual("test")
       })
-  })
+    })
 
   describe('fetchEditNote', () => {
       let editNote;
       beforeEach(() => {
         editNote ={ id: 22, 
-            tasks: [{ id: 77, text: "a test" }], 
+            tasks: [{ id: 77, text: "lettuce" }], 
             title: "Turtles" } 
       })
-      it.skip('should edit the correct note', async () => {
+      it('should edit the correct note', async () => {
         const result = await fetchEditNote(editNote);
         expect(result).toBe(7)
       })
