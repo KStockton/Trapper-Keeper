@@ -5,6 +5,12 @@
   column-gap: 40px;
 }
 
+.Note-container-start {
+  margin: auto;
+  width: 100vw; 
+  height: 100vh;
+}
+
 @media (max-width: 1200px)
 {
   .note-container-component {

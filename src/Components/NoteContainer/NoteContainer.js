@@ -22,8 +22,9 @@ export class NoteContainer extends Component {
     console.log(this.props.notes)
     return (
       <div className="note-container-component">
-      {(notes.length) ? this.renderNotes() :  <section>
-        <p>Create a note above <span role="img" aria-label="smile">😊</span></p>
+      {(notes.length) ? this.renderNotes() :  <section className="Note-container-start">
+        <h3>Lets Get Started</h3>
+        <p>Add a note above to begin<span role="img" aria-label="smile">😊</span></p>
       </section>}
      
     </div>
