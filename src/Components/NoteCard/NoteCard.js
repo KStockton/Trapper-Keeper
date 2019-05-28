@@ -4,9 +4,13 @@ import { fetchDeleteNote } from "../../Api/fetch/fetchDeleteNote";
 import { Link } from "react-router-dom";
 
 export class NoteCard extends Component {
-  state = { title: "", delete: false };
+  constructor(){
+    super()
+    this.state = { title: "", delete: false };
 
-  handleChange = e => {
+  }
+
+  handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
@@ -20,7 +24,7 @@ export class NoteCard extends Component {
     this.setState({ delete: !this.state.delete });
   };
 
-  handleDelete = noteId => {
+  handleDelete = (noteId) => {
     fetchDeleteNote(noteId);
   };
 
@@ -43,6 +47,7 @@ export class NoteCard extends Component {
               <input type="submit" className="btn" value="Save" />
               {this.state.delete === true ? (
                 <div
+                id="deletebtn"
                   className="red-delete-btn"
                   onMouseOver={this.handleMouseOver}
                   onMouseLeave={this.handleMouseOver}
