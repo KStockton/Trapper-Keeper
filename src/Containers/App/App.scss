@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-image: url('../Assets/corkboard.jpg');
   height: 100%;

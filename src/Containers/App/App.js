@@ -4,7 +4,6 @@ import NoteContainer from "../NoteContainer/NoteContainer";
 import NotFound from "../../Components/NotFound/NotFound";
 import { Route, Switch } from "react-router-dom";
 import NewCard from "../../Components/NewCard/NewCard";
-// import ViewNote from "../ViewNote/ViewNote";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
