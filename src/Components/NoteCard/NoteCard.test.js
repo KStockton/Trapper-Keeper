@@ -21,13 +21,14 @@ describe("NoteCard", () => {
     expect(wrapper.state("title")).toBe("hello");    
   })
 
-  it.skip('should call handleDelete note when button is clicked', () => {
+  it('should call handleDelete note when button is clicked', () => {
     wrapper.setState({ delete: true });
     let button = wrapper.find('.red-delete-btn')
     button.simulate("click", 22);
-    let handleDelete = jest.fn()
-    expect(mockDelete).toHaveBeenCalled();
+    wrapper.instance().handleDelete = jest.fn()
+    expect(wrapper.instance().handleDelete).toHaveBeenCalled();
   })
+
   it('should toggle state delete', () => {
     wrapper.setState({ delete: true });
     let button = wrapper.find('.red-delete-btn')

@@ -8,7 +8,7 @@ describe("NewCard", () => {
   let MockFn = jest.fn();
   let mockEvent;
   beforeEach(() => {
-    wrapper = shallow(<NewCard/>);
+    wrapper = shallow(<NewCard fetchAddNote= {MockFn}/>);
     mockEvent = { target: { value: "hello", name: "title" } };
   });
   it("should match snapshot", () => {
@@ -28,10 +28,10 @@ describe("NewCard", () => {
     expect(wrapper.state("notes")).toEqual([{"completed": true, "id": 7}]);
   });
 
-  it.skip('expect fetchAddNote to be called on save click', () => {
+  it('expect fetchAddNote to be called on save click', () => {
     wrapper.setState({notes: [{id: 7, completed: false}]})
     const deleteButton = wrapper.find("#save-btn");
     deleteButton.simulate("click");
-    expect(fetchAddNote).toHaveBeenCalled()
+    expect(MockFn).toHaveBeenCalled()
   })
 });
