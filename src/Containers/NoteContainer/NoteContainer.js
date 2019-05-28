@@ -25,7 +25,6 @@ export class NoteContainer extends Component {
         <h3>Lets Get Started</h3>
         <p>Add a note above to begin<span role="img" aria-label="smile">😊</span></p>
       </section>}
-     
     </div>
     )
   }

@@ -31,9 +31,6 @@ export class NoteItem extends Component {
           <div id="unchecked" className="unchecked" onClick={this.handleComplete} />
         )}
         <p className="list-item">{tasks.message}</p>
-        <button className={listItem !== "" ? "no-content" : "remove-content"}>
-          x
-        </button>
       </div>
     );
   }

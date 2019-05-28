@@ -48,13 +48,17 @@ export class NoteCard extends Component {
             <Link to={`notes/${id}`}>
               <input type="submit" className="btn" value="Edit Note" />
             </Link>
-              <div role="button"
+            {this.state.delete === true ? (
+              <div
                 id="deletebtn"
                 className="red-delete-btn"
                 onMouseOver={this.handleMouseOver}
                 onMouseLeave={this.handleMouseOver}
                 onClick={() => this.handleDelete(id)}
               />
+            ) : (
+              <div className="delete-btn" onMouseOver={this.handleMouseOver} />
+            )}
           </section>
         </section>
       </div>
