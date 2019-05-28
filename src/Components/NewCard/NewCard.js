@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 export class NewCard extends Component {
   state = { editList: "", title: "", listItem: "", notes: [] };
 
-
   componentDidMount() {
     this.grabInfo()
   }
@@ -40,6 +39,7 @@ export class NewCard extends Component {
     togglecomplete.completed = !togglecomplete.completed;
     this.setState({ notes });
   };
+
   handleKeyPress = () => {
     const { listItem, notes } = this.state;
     const newNote = { id: Date.now(), message: listItem, completed: false };
@@ -130,7 +130,7 @@ export class NewCard extends Component {
         {complete}
         {this.state.notes.length ? (
           <React.Fragment>
-            <button id ="save-btn" onClick={() => this.handleSaveNote()}>Save</button>
+            <button id="save-btn" onClick={() => this.handleSaveNote()}>Save</button>
             <Link to={"/"}>
               <button>Return to all notes</button>
             </Link>

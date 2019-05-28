@@ -16,5 +16,14 @@ describe('Reducer Tests', () => {
             const result = noteReducer([], {})
             expect(result).toEqual([])
         })
+        it('should return initial state when case is not ALL_NOTES ', () => {
+            const result = noteReducer([], {})
+            expect(result).toEqual([])
+        })
+
+        it('should return initial state when case is not DELETE_NOTE ', () => {
+            const result = noteReducer(notes, actions.deleteNote(notes))
+            expect(result).toEqual(notes)
+        })
     })
 })

@@ -28,10 +28,15 @@ describe("NewCard", () => {
   });
 
   it('expect fetchAddNote to be called on save click', () => {
-    let MockFn = jest.spyOn(wrapper.instance(), "handleSaveNote")
     wrapper.setState({notes: [{id: 7, completed: false}]})
+    let MockFn = jest.spyOn(wrapper.instance(), "handleSaveNote")
     const saveButton = wrapper.find("#save-btn");
     saveButton.simulate("click");
     expect(MockFn).toHaveBeenCalled()
+  })
+  it("should call handleKeyPress on enter", () => {
+    let MockFn = jest.spyOn(wrapper.instance(), "handleKeyPress")
+    wrapper.simulate('keypress', {key: 'Enter'});
+    expect(MockFn).toHaveBeenCalled
   })
 });
