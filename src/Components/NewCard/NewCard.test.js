@@ -5,10 +5,9 @@ import { fetchAddNote } from "../../Api/fetch/fetchAddNote";
 
 describe("NewCard", () => {
   let wrapper;
-  let MockFn = jest.fn();
   let mockEvent;
   beforeEach(() => {
-    wrapper = shallow(<NewCard fetchAddNote= {MockFn}/>);
+    wrapper = shallow(<NewCard/>);
     mockEvent = { target: { value: "hello", name: "title" } };
   });
   it("should match snapshot", () => {
@@ -29,9 +28,10 @@ describe("NewCard", () => {
   });
 
   it('expect fetchAddNote to be called on save click', () => {
+    let MockFn = jest.spyOn(wrapper.instance(), "handleSaveNote")
     wrapper.setState({notes: [{id: 7, completed: false}]})
-    const deleteButton = wrapper.find("#save-btn");
-    deleteButton.simulate("click");
+    const saveButton = wrapper.find("#save-btn");
+    saveButton.simulate("click");
     expect(MockFn).toHaveBeenCalled()
   })
 });

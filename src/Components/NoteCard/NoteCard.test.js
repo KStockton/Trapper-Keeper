@@ -22,11 +22,11 @@ describe("NoteCard", () => {
   })
 
   it('should call handleDelete note when button is clicked', () => {
+    let MockFn = jest.spyOn(wrapper.instance(), "handleDelete")
     wrapper.setState({ delete: true });
     let button = wrapper.find('.red-delete-btn')
     button.simulate("click", 22);
-    wrapper.instance().handleDelete = jest.fn()
-    expect(wrapper.instance().handleDelete).toHaveBeenCalled();
+    expect(MockFn).toHaveBeenCalled();
   })
 
   it('should toggle state delete', () => {
