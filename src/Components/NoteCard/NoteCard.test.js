@@ -4,14 +4,36 @@ import { NoteCard } from './NoteCard'
 
 describe("NoteCard", () => {
   let wrapper;
-  let mockItem
+  let mockData;
+  let mockDelete = jest.fn()
+  let mockMouse = jest.fn()
   beforeEach(() => {
-    mockItem = {data:{title: "testing", id: 22}}
-    wrapper = shallow(<NoteCard props ={mockItem} />)
+    mockData = {title: "testing", id: 22, list:[{id: 35,task:"testing"},{id: 77,task:"test"}]}
+    wrapper = shallow(<NoteCard data={mockData} handleDelete={mockDelete} handleMouseOver={mockMouse} />)
   })
 
   it('expect wrapper to match snapShot', () => {
     expect(wrapper).toMatchSnapshot()
+  })
+  it('should call handlechange on input change', () => {
+    let mockEvent = { target: { value: "hello", name: "title" } };
+    wrapper.find('.note-title').simulate('change', mockEvent );
+    expect(wrapper.state("title")).toBe("hello");    
+  })
+
+  it('should call handleDelete note when button is clicked', () => {
+    let MockFn = jest.spyOn(wrapper.instance(), "handleDelete")
+    wrapper.setState({ delete: true });
+    let button = wrapper.find('.red-delete-btn')
+    button.simulate("click", 22);
+    expect(MockFn).toHaveBeenCalled();
+  })
+
+  it('should toggle state delete', () => {
+    wrapper.setState({ delete: true });
+    let button = wrapper.find('.red-delete-btn')
+    button.simulate("mouseleave", "test");
+    expect(wrapper.state('delete')).toEqual(false)
   })
 
 })

@@ -5,10 +5,14 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import * as actions from '../../Actions/index'
 //setstate error  in handleDelete function but havent done anything to the error if it is not null
-class NoteCard extends Component {
-  state = { title: "", delete: false , error: null};
 
-  handleChange = e => {
+export class NoteCard extends Component {
+  constructor(){
+    super()
+    this.state = { title: "", delete: false };
+  }
+
+  handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
@@ -21,6 +25,7 @@ class NoteCard extends Component {
   handleMouseOver = () => {
     this.setState({ delete: !this.state.delete });
   };
+
 
   handleDelete = async (noteId) => {
     try {
@@ -44,6 +49,7 @@ class NoteCard extends Component {
             </Link>
             {this.state.delete === true ? (
               <div
+                id="deletebtn"
                 className="red-delete-btn"
                 onMouseOver={this.handleMouseOver}
                 onMouseLeave={this.handleMouseOver}
