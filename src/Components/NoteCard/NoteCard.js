@@ -33,7 +33,6 @@ class NoteCard extends Component {
 
   render() {
     const { title, id } = this.props.data;
-
     return (
       <div className="note-card-component">
         <section className="note-card">

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class NoteItem extends Component {
+export class NoteItem extends Component {
   state = { listItem: "", isComplete: false };
 
   componentDidMount() {
@@ -26,9 +26,9 @@ class NoteItem extends Component {
     return (
       <div className="note-item-component">
         {isComplete === true ? (
-          <div className="checked" onClick={this.handleComplete} />
+          <div id="checked" className="checked" onClick={this.handleComplete} />
         ) : (
-          <div className="unchecked" onClick={this.handleComplete} />
+          <div id="unchecked" className="unchecked" onClick={this.handleComplete} />
         )}
         <p className="list-item">{tasks.message}</p>
         <button className={listItem !== "" ? "no-content" : "remove-content"}>
