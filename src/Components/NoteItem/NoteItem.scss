@@ -8,10 +8,10 @@
   text-decoration: line-through;
 }
 
-.note-item-component:hover, .remove-content:hover {
-  opacity: 1;
-  cursor: pointer;
-}
+// .note-item-component:hover, .remove-content:hover {
+//   opacity: 1;
+//   cursor: pointer;
+// }
 
 .remove-content {
   background: none;
@@ -40,6 +40,7 @@
   background-size: contain;
   height: 30px;
   width: 30px;
+  cursor: pointer;
 }
 
 .unchecked {
@@ -48,4 +49,5 @@
   background-size: contain;
   height: 30px;
   width: 30px;
+  cursor: pointer;
 }
