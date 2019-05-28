@@ -9,9 +9,9 @@ export const fetchDeleteNote = async (id) => {
  const response = await fetch(url, options)
    if (!response.ok) {
       throw Error("Failed to delete note");
-    } else {
-      return response.json();
-    } 
+    // } else {
+    //   return response.json();
+    // } 
     //removed below because it was causing an error that indicated we set headers twice, which is true from the backend.
     // response.sendStatus(204);
 
