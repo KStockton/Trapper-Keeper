@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Header from "../Header/Header";
+import Header from "../../Components/Header/Header";
 import NoteContainer from "../NoteContainer/NoteContainer";
-import NotFound from "../NotFound/NotFound";
+import NotFound from "../../Components/NotFound/NotFound";
 import { Route, Switch } from "react-router-dom";
-import NewCard from "../NewCard/NewCard";
+import NewCard from "../../Components/NewCard/NewCard";
 // import ViewNote from "../ViewNote/ViewNote";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";

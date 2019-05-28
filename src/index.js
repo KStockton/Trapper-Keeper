@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { createStore } from 'redux';
 import { composeWithDevTools } from "redux-devtools-extension";
 import { rootReducer } from './Reducers/index'
-import App from './Components/App/App'
+import App from './Containers/App/App'
 
 const store = createStore( rootReducer, composeWithDevTools())
 

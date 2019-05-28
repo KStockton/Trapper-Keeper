@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NoteItem from "../NoteItem/NoteItem";
+import NoteItem from "../../Components/NoteItem/NoteItem";
 import { fetchDeleteNote } from "../../Api/fetch/fetchDeleteNote";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
