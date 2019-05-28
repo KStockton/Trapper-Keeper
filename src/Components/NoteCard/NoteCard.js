@@ -18,9 +18,9 @@ export class NoteCard extends Component {
   // };
 
   renderListItems = () => {
-    const { tasks } = this.props.data
+    const { list } = this.props.data
 
-    return tasks.map(task => <NoteItem key={task.id} tasks={task} />);
+    return list.map(task => <NoteItem key={task.id} tasks={task} />);
   };
 
   handleMouseOver = () => {
