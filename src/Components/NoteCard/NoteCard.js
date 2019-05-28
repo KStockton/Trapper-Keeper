@@ -12,10 +12,10 @@ export class NoteCard extends Component {
     this.state = { title: "", delete: false };
   }
 
-  handleChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
+  // handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   this.setState({ [name]: value });
+  // };
 
   renderListItems = () => {
     const { tasks } = this.props.data
