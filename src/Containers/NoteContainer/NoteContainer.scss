@@ -5,10 +5,22 @@
   column-gap: 40px;
 }
 
-.Note-container-start {
-  margin: auto;
-  width: 100vw; 
-  height: 100vh;
+.note-container-start {
+  margin: 150px auto;
+  width: 300px; 
+  height: 230px;
+  background-color: #ffff88;
+  box-shadow: 3px 10px 10px -10px rgba(0,0,0,0.75); 
+  
+}
+
+.intro-title {
+  padding-top: 30px;
+}
+
+.intro-paragraph {
+  width: 80%;
+  margin: 0 auto;
 }
 
 @media (max-width: 1200px)

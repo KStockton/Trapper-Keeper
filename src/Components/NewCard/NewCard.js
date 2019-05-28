@@ -1,37 +1,38 @@
 import React, { Component } from "react";
 import { fetchAddNote } from "../../Api/fetch/fetchAddNote";
-import { fetchNote } from '../../Api/fetch/fetchNote';
+import { fetchEditNote } from "../../Api/fetch/fetchEditNote";
+import { fetchNote } from "../../Api/fetch/fetchNote";
 import { Link } from "react-router-dom";
 
 export class NewCard extends Component {
-  state = { editList: "", title: "", listItem: "", notes: [] };
+  state = { editList: [], title: "", listItem: "", notes: [] };
 
   componentDidMount() {
-    this.grabInfo()
+    this.grabInfo();
   }
 
   grabInfo = async () => {
-    const { id } = this.props
+    const { id } = this.props;
 
-    if(id){
-      const response =  await fetchNote(id)
-      const { title, list } = response
+    if (id) {
+      const response = await fetchNote(id);
+      const { title, list } = response;
+
+      console.log(response);
 
       this.setState({
-        title, 
+        title,
         notes: list
-      })
+      });
     }
-  }
+  };
 
-
-
-  handleChange = (event) => {
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleComplete = (event) => {
+  handleComplete = event => {
     const { notes } = this.state;
     let { id } = event.target;
     id = parseInt(id);
@@ -61,7 +62,12 @@ export class NewCard extends Component {
   };
 
   handleSaveNote = () => {
-    fetchAddNote(this.state.title, this.state.notes);
+    if(this.props.id) {
+      // fetchEditNote()
+      console.log('This is where the fetchEditNote goes')
+    } else {
+      fetchAddNote(this.state.title, this.state.notes);
+    }
   };
 
   render() {
@@ -84,7 +90,7 @@ export class NewCard extends Component {
       });
 
     let complete = notes
-      .filter(note => note.completed === true)
+    .filter(note => note.completed === true)
       .map(complete => {
         return (
           <section key={complete.id} className="note-item-component">
@@ -130,7 +136,9 @@ export class NewCard extends Component {
         {complete}
         {this.state.notes.length ? (
           <React.Fragment>
-            <button id="save-btn" onClick={() => this.handleSaveNote()}>Save</button>
+            <button id="save-btn" onClick={() => this.handleSaveNote()}>
+              Save
+            </button>
             <Link to={"/"}>
               <button>Return to all notes</button>
             </Link>
