@@ -1,10 +1,31 @@
 import React, { Component } from "react";
 import { fetchAddNote } from "../../Api/fetch/fetchAddNote";
+import { fetchNote } from '../../Api/fetch/fetchNote';
 import { Link } from "react-router-dom";
-
 
 export class NewCard extends Component {
   state = { editList: "", title: "", listItem: "", notes: [] };
+
+
+  componentDidMount() {
+    this.grabInfo()
+  }
+
+  grabInfo = async () => {
+    const { id } = this.props
+
+    if(id){
+      const response =  await fetchNote(id)
+      const { title, list } = response
+
+      this.setState({
+        title, 
+        notes: list
+      })
+    }
+  }
+
+
 
   handleChange = (event) => {
     const { name, value } = event.target;

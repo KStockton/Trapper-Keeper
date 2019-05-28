@@ -1,6 +1,6 @@
 import { BASE_URL } from "../utilities";
 
-export const fetchAllNotes = async () => {
+export const fetchAllNotes = () => {
   return fetch(`${BASE_URL}/api/v1/notes`).then(response => {
     if (!response.ok) {
       throw Error("Failed to get notes");
@@ -9,3 +9,5 @@ export const fetchAllNotes = async () => {
     }
   });
 };
+
+

@@ -5,9 +5,7 @@ import { connect } from "react-redux";
 import { allNotes } from "../../Actions/index";
 import PropTypes from 'prop-types'
 
-
 export class NoteContainer extends Component {
-  state = { allNotes: [] };
 
   componentDidMount() {
     fetchAllNotes().then(results => this.props.allNotes(results));
@@ -20,7 +18,16 @@ export class NoteContainer extends Component {
   };
 
   render() {
-    return <div className="note-container-component">{this.renderNotes()}</div>;
+    const{ notes } = this.props
+    return (
+      <div className="note-container-component">
+      {(notes.length) ? this.renderNotes() :  <section className="Note-container-start">
+        <h3>Lets Get Started</h3>
+        <p>Add a note above to begin<span role="img" aria-label="smile">😊</span></p>
+      </section>}
+     
+    </div>
+    )
   }
 }
 

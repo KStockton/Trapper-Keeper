@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class Header extends Component {
   render() {
     return (
-      <div className="header-component">
+      <div className="header-component ">
         <header className="header">
           <div className="push-pin" />
           <h1 className="title">TrapperKeeper</h1>
