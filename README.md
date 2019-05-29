@@ -13,7 +13,7 @@ https://github.com/KStockton/api-trapper-keeper
    
  
  ### The Wireframe:
- [Trapper Keeper.pdf](https://github.com/KStockton/Trapper-Keeper/files/3232812/Trapper.Keeper.pdf)
+![Trapper Keeper](https://user-images.githubusercontent.com/39016273/58562679-f5ee3100-81e6-11e9-8866-6e585eafc1fc.jpg)
 
  ### Create cards: 
 ![2019-05-29 07 32 38](https://user-images.githubusercontent.com/39016273/58562317-3e591f00-81e6-11e9-8125-d321836d57e0.gif)
