@@ -23,7 +23,11 @@ export class NoteItem extends Component {
         {isComplete === true ? (
           <div id="checked" className="checked" onClick={this.handleComplete} />
         ) : (
-          <div id="unchecked" className="unchecked" onClick={this.handleComplete} />
+          <div
+            id="unchecked"
+            className="unchecked"
+            onClick={this.handleComplete}
+          />
         )}
         <p className="list-item">{tasks.message}</p>
       </div>
