@@ -21,6 +21,11 @@ describe("NoteContainer", () => {
   it("should match the snapshot", () => {
     expect(wrapper).toMatchSnapshot();
   });
+  it("should match the snapshot", () => {
+    let notes = []
+    wrapper = shallow(<NoteContainer notes={notes}/>)
+    expect(wrapper).toMatchSnapshot();
+  });
 
   describe('mapStateToProps', () => {
     it('should set props as an object with an array from state', () => {

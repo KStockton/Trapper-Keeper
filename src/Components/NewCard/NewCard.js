@@ -5,7 +5,16 @@ import { fetchNote } from "../../Api/fetch/fetchNote";
 import { Link } from "react-router-dom";
 
 export class NewCard extends Component {
-  state = { editList: [], title: "", listItem: "", notes: [] };
+  constructor() {
+    super();
+    this.state = {
+      editList: "",
+      main: false,
+      title: "",
+      listItem: "",
+      notes: []
+    };
+  }
 
   componentDidMount() {
     this.grabInfo();
@@ -53,14 +62,17 @@ export class NewCard extends Component {
     });
   };
 
-  editListItem = (event, id) => {
-    const { notes } = this.state;
-    const { value } = event.target;
-    id = parseInt(id);
+  editListItem = id => {
+    console.log(id);
+    const { notes, editList } = this.state;
+    let editItem = notes.find(note => note.id == id);
+    console.log(editItem);
+    // editItem.message = editList
+    this.setState({ main: !this.state.main });
+    // const { value } = event.target
+    // id = parseInt(id);
 
-    let editItem = notes.find(note => note.id === id);
-    editItem.task = value;
-    this.setState({ notes });
+    // editItem.task = value;
   };
 
   handleSaveNote = () => {
@@ -78,7 +90,7 @@ export class NewCard extends Component {
   };
 
   render() {
-    const { notes } = this.state;
+    const { notes, main, editList } = this.state;
 
     let todos = notes
       .filter(note => note.completed === false)
@@ -90,13 +102,22 @@ export class NewCard extends Component {
               id={incomplete.id}
               onClick={this.handleComplete}
             />
-            <input className="todo" value={incomplete.message} />
-            <i
-              className="material-icons"
-              onClick={() => this.deleteListItem(incomplete.id)}
-            >
-              delete_forever
-            </i>
+            {main ? (
+              <input
+                className="todo"
+                name="editList"
+                value={editList}
+                onChange={this.handleChange}
+              />
+            ) : (
+              <p
+                className="completed todo"
+                onClick={() => this.editListItem(complete.id)}
+              >
+                {incomplete.message}
+              </p>
+            )}
+            <i className="material-icons">delete_forever</i>
           </section>
         );
       });
@@ -111,8 +132,24 @@ export class NewCard extends Component {
               id={complete.id}
               onClick={this.handleComplete}
             />
-            <input className="completed todo" value={complete.message} />
+            {main ? (
+              <input
+                className="todo"
+                name="editList"
+                value={editList}
+                onClick={() => this.editListItem(complete.id)}
+              />
+            ) : (
+              <p
+                className="completed todo"
+                onClick={() => this.editListItem(complete.id)}
+              >
+                {complete.message}
+              </p>
+            )}
+
             <i
+              id="delete-button"
               className="material-icons"
               onClick={() => this.deleteListItem(complete.id)}
             >
