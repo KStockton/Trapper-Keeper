@@ -26,4 +26,8 @@ https://github.com/KStockton/api-trapper-keeper
 
 
 
-
+## Learning Goals:
+1. Build your own backend
+2. Back-end testing
+3. Error Handling
+4. GET, POST, PUT, PATCH, DELETE
