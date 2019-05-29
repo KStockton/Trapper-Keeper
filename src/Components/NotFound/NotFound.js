@@ -3,14 +3,14 @@ import "./NotFound.scss";
 import { Link } from "react-router-dom";
 
 const NotFound = () => (
-  <div className="notFoundComponent">
+  <div className="not-found-component">
     <img
       src="https://i.imgur.com/aJoxMYW.jpg"
       alt="404, page not found"
-      className="notFound"
+      className="not-found"
     />
     <Link to="/">
-      <button className="home-btn">Home Page</button>
+      <button className="home-btn" onClick={console.log('HEYYYYY')}>Home Page</button>
     </Link>
   </div>
 );

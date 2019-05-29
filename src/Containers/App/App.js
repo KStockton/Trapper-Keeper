@@ -28,14 +28,12 @@ export class App extends Component {
               );
               /* istanbul ignore next */
               if (note) {
-              /* istanbul ignore next */
+                /* istanbul ignore next */
                 return <NewCard {...note} />;
               }
             }}
           />
-          <div className="center-new-card">
-            <Route path="/new-note" component={NewCard} />
-          </div>
+          <Route path="/new-note" component={NewCard} />
           <Route path="" component={NotFound} />
         </Switch>
       </div>

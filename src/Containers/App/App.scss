@@ -1,3 +1,5 @@
+@import "../../Sass/variables";
+
 .App {
   text-align: center;
 }
@@ -10,11 +12,4 @@ body {
   background-image: url('../Assets/corkboard.jpg');
   height: 100%;
   width: 100vw;
-}
-
-.center-new-card {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 200px 0;
 }
