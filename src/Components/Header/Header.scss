@@ -1,11 +1,13 @@
+@import "../../Sass/variables";
+
 .header-component {
-  background-color: #1C1003;
+  background-color: $header-color;
   height: 100px;
   margin-top: 0;
   width: 100vw;
   
   .logo {
-    color: white;
+    color: $logo-color;
     margin: 5px auto;
     margin-left: 65px;
     float: left;
@@ -15,8 +17,7 @@
     &::before {
       content: "";
       background-image: url('../Assets/pin.png');
-      background-repeat: no-repeat;
-      background-size: contain;
+      @include background-style;
       height: 75px;
       left: 10px;
       position: absolute;
@@ -25,10 +26,9 @@
   }
 
   .add-note {
-    background-color: #1C1003;
+    background-color: $header-color;
     background-image: url('../Assets/plus.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
+    @include background-style;
     border: none;
     cursor: pointer;
     float: right;

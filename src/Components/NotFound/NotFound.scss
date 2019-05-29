@@ -1,3 +1,5 @@
+@import "../../Sass/variables";
+
 .not-found-component {
   align-items: center;
   display: flex;
@@ -11,10 +13,10 @@
   }
 
   .home-btn {
-    background-color: #448DF5;
-    border-color: #C7E2FF;
+    background-color: $four0four-background;
+    border-color: $four0four-color;
     border-radius: 5px;
-    color: #C7E2FF;
+    color: $four0four-color;
     height: 80px;
     width: 300px;
 

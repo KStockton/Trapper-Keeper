@@ -1,5 +1,7 @@
+@import "../../Sass/variables";
+
 .new-card-component {
-  background-color: #ffff88;
+  background-color: $card-color;
   box-shadow: 3px 10px 10px -10px rgba(0,0,0,0.75);
   margin: 50px auto;
   width: 50%;
@@ -11,7 +13,7 @@
     padding-left: 13px;
     
     .note-title {
-      background-color: #ffff88;
+      background-color: $card-color;
       border: none;
       font-size: 35px;
       height: 1em;
@@ -32,17 +34,16 @@
 
     .plus {
       background-image: url('../Assets/add.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
+      @include background-style;
       height: 15px;
-      margin: 9px 0 0 5px;
+      margin: 17.5px 0 0 5px;
       opacity: .7;
-      padding-right: 15px;
+      padding-right: 30px;
       width: 15px;
     }
 
     .list-item {
-      background-color: #ffff88;
+      background-color: $card-color;
       border: none;
       font-size: 15px;
       height: 30px;
@@ -51,6 +52,32 @@
 
       &:focus {
         outline: none;
+      }
+    }
+  }
+
+  .new-note-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding-bottom: 15px;
+
+    .save-note {
+      @include buttons;
+
+      &:hover {
+        color: #fff;
+        z-index: 1;
+      }
+
+      &::before {
+        @include buttons-before;
+      }
+    
+      &:hover::before {
+        height: 180%;
+        color: white;
       }
     }
   }

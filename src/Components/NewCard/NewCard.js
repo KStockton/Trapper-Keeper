@@ -152,14 +152,19 @@ export class NewCard extends Component {
         {todos}
         {complete}
         {this.state.notes.length ? (
-          <React.Fragment>
-            <button id="save-btn" onClick={() => this.handleSaveNote()}>
-              Save
+          <section className="new-note-btns">
+            <button
+              className="save-note"
+              onClick={() => this.handleSaveNote()}
+            >
+              Save note
             </button>
             <Link to={"/"}>
-              <button>Return to all notes</button>
+              <button className="save-note">
+                Return to all notes
+              </button>
             </Link>
-          </React.Fragment>
+          </section>
         ) : null}
       </div>
     );

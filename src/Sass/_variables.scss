@@ -1,9 +1,56 @@
+$card-color: #ffff88;
+$header-color: #1C1003;
+$four0four-background: #448DF5;
+$four0four-color: #C7E2FF;
+$logo-color: #FFFFFF;
+$button-color: #008000;
+
+
 @mixin displayFlex($justC, $alignC, $alignI, $fdirection){
   display: flex;
   justify-content: $justC;
   align-content: $alignC;
   align-items: $alignI;
   flex-direction: $fdirection;
+}
+
+@mixin background-style {
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@mixin card-icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+@mixin buttons {
+  cursor: pointer;
+  border: 1px solid $button-color;
+  background: none;
+  font-size: 20px;
+  font-family: "montserrat";
+  margin-top: 5px;
+  color: $button-color;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+}
+
+@mixin buttons-before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: $button-color;
+  z-index: -1;
+  transition: 0.8s;
+  top: 0;
+  border-radius: 0 0 50% 50%;
 }
 
 

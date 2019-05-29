@@ -1,3 +1,5 @@
+@import "../../Sass/variables";
+
 .note-item-component {
   align-items: center;
   border: 1px solid #edeeed;
@@ -16,7 +18,7 @@
   }
 
   .list-item {
-    background-color: #ffff88;
+    background-color: $card-color;
     border: none;
     font-size: 15px;
     height: 30px;
@@ -30,19 +32,11 @@
 
   .checked {
     background-image: url('../Assets/checked.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    cursor: pointer;
-    height: 30px;
-    width: 30px;
+    @include card-icon;
   }
 
   .unchecked {
     background-image: url('../Assets/unchecked.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    cursor: pointer;
-    height: 30px;
-    width: 30px;
+    @include card-icon;
   }
 }

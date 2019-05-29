@@ -1,49 +1,53 @@
+@import "../../Sass/variables";
+
 .note-card-component {
-  background-color: #ffff88;
+  background-color: $card-color;
   box-shadow: 3px 10px 10px -10px rgba(0,0,0,0.75);
   break-inside: avoid;
   margin: 0 0 20px;
   overflow: hidden;
   padding: 10px;
-  text-decoration: none !important;
   width: 100%;
 
   .note-title {
-    background-color: #ffff88;
-    border: none;
+    text-transform: capitalize;
     font-size: 35px;
-    height: 1em;
-    margin-top: 5px;
     padding-bottom: 15px;
-    text-decoration: none !important;
     width: 99%;
   }
   
   .note-options {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    margin-top: 15px;
+    justify-content: space-between;
 
-    .btn {
-      cursor: pointer;
-    }
+    .edit-note-btn {
+      @include buttons;
+
+      &:hover {
+        color: #fff;
+        z-index: 1;
+      }
+
+      &::before {
+        @include buttons-before;
+      }
     
-    .red-delete-btn {
-      background-image: url('../Assets/red-waste-bin.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      height: 30px;
-      width: 30px;
-      cursor: pointer;
+      &:hover::before {
+        height: 180%;
+        color: white;
+      }
     }
+  }
 
-    .delete-btn {
-      background-image: url('../Assets/trashcan.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      height: 30px;
-      width: 30px;
-      cursor: pointer;
-    }
+  .red-delete-btn {
+    background-image: url('../Assets/red-waste-bin.svg');
+    @include card-icon;
+  }
+
+  .delete-btn {
+    background-image: url('../Assets/trashcan.svg');
+    @include card-icon;
   }
 }
