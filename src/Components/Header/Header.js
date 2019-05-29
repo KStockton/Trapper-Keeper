@@ -5,10 +5,9 @@ class Header extends Component {
   render() {
     return (
       <div className="header-component ">
-        <header className="header">
-          <div className="push-pin" />
+        <header>
           <Link to={"/"}>
-            <h1 className="title">TrapperKeeper</h1>
+            <h1 className="logo">TrapperKeeper</h1>
           </Link>
           <Link to={"/new-note"}>
             <button className="add-note" />

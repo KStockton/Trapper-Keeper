@@ -1,49 +1,49 @@
-.note-card {
+.note-card-component {
   background-color: #ffff88;
   box-shadow: 3px 10px 10px -10px rgba(0,0,0,0.75);
-  width: 100%;
-  margin: 0 0 20px;
-  padding: 10px;
-  overflow: hidden;
   break-inside: avoid;
+  margin: 0 0 20px;
+  overflow: hidden;
+  padding: 10px;
   text-decoration: none !important;
+  width: 100%;
 
   .note-title {
-    margin-top: 15px;
     background-color: #ffff88;
     border: none;
-    width: 99%;
-    height: 1em;
     font-size: 35px;
+    height: 1em;
+    margin-top: 5px;
     padding-bottom: 15px;
     text-decoration: none !important;
+    width: 99%;
   }
-
-  .btn {
-    cursor: pointer;
-  }
-
-  .delete-btn {
-    background-image: url('../Assets/trashcan.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
-  }
-
-  .red-delete-btn {
-    background-image: url('../Assets/red-waste-bin.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
-  }
-
+  
   .note-options {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+
+    .btn {
+      cursor: pointer;
+    }
+    
+    .red-delete-btn {
+      background-image: url('../Assets/red-waste-bin.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 30px;
+      width: 30px;
+      cursor: pointer;
+    }
+
+    .delete-btn {
+      background-image: url('../Assets/trashcan.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 30px;
+      width: 30px;
+      cursor: pointer;
+    }
   }
 }

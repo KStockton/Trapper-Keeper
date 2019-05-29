@@ -78,7 +78,6 @@ export class NewCard extends Component {
   };
 
   render() {
-    console.log(this.state.notes);
     const { notes } = this.state;
 
     let todos = notes
@@ -125,7 +124,7 @@ export class NewCard extends Component {
 
     return (
       <div className="new-card-component">
-        <form className="NewCard-form">
+        <form className="new-card-form">
           <input
             id="title"
             type="text"
