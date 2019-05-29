@@ -10,7 +10,7 @@ const NotFound = () => (
       className="not-found"
     />
     <Link to="/">
-      <button className="home-btn" onClick={console.log('HEYYYYY')}>Home Page</button>
+      <button className="home-btn">Home Page</button>
     </Link>
   </div>
 );
