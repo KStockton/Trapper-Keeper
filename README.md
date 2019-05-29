@@ -5,7 +5,8 @@ By:
 * Rachael Drennan https://github.com/rdren0
 
 
-In the project directory, you can run:
+In the project directory, you need to run:
+### `npm i`
 
 ### `npm start`
 Runs the app in the development mode.<br>
