@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import { fetchAddNote } from "../../Api/fetch/fetchAddNote";
 import { fetchEditNote } from "../../Api/fetch/fetchEditNote";
@@ -28,19 +27,19 @@ export class NewCard extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    
+
     this.setState({ [name]: value });
   };
 
   handleComplete = event => {
     const { notes } = this.state;
     let { id } = event.target;
-    
+
     id = parseInt(id);
-    
+
     const togglecomplete = notes.find(note => note.id === id);
     togglecomplete.completed = !togglecomplete.completed;
-    
+
     this.setState({ notes });
   };
 
@@ -56,14 +55,13 @@ export class NewCard extends Component {
       notes: [...notes, newNote],
       listItem: ""
     });
-  }; 
+  };
 
   handleSaveNote = () => {
     const { id } = this.props;
     const { title, notes } = this.state;
     if (this.props.id) {
       const updatedList = { id, title, notes };
-      console.log(updatedList)
       fetchEditNote(updatedList);
     } else {
       fetchAddNote(title, notes);
@@ -84,7 +82,6 @@ export class NewCard extends Component {
 
   render() {
     const { notes } = this.state;
-    console.log(this.state)
 
     let todos = notes
       .filter(note => !note.completed)
@@ -103,6 +100,7 @@ export class NewCard extends Component {
             />
             <i
               className="material-icons"
+              data-test="delete-button"
               onClick={() => this.deleteListItem(incomplete.id)}
             >
               delete_forever
@@ -128,6 +126,7 @@ export class NewCard extends Component {
             />
             <i
               className="material-icons"
+              data-test="delete-button"
               onClick={() => this.deleteListItem(complete.id)}
             >
               delete_forever
@@ -156,6 +155,7 @@ export class NewCard extends Component {
               className="list-item"
               value={this.state.listItem}
               placeholder="List Item"
+              data-test="enter-item"
               onChange={this.handleChange}
               onKeyPress={event => {
                 if (event.key === "Enter") this.handleKeyPress();
@@ -167,11 +167,17 @@ export class NewCard extends Component {
         {complete}
         {this.state.notes.length ? (
           <section className="new-note-btns">
-            <button className="save-note" onClick={() => this.handleSaveNote()}>
+            <button
+              className="save-note"
+              data-test="save-note"
+              onClick={() => this.handleSaveNote()}
+            >
               Save note
             </button>
             <Link to={"/"}>
-              <button className="save-note">Return to all notes</button>
+              <button className="save-note" data-test="return-to-notes">
+                Return to all notes
+              </button>
             </Link>
           </section>
         ) : null}
