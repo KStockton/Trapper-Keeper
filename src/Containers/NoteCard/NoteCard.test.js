@@ -30,6 +30,14 @@ describe("NoteCard", () => {
     button.simulate("click", 22);
     expect(MockFn).toHaveBeenCalled();
   })
+  it.skip('should call handleDelete note when button is clicked', () => {
+    let mockFn =jest.fn()
+    wrapper = shallow(<NoteCard data={mockData} deleteNote={mockFn}/>)
+    wrapper.setState({ delete: true });
+    let button = wrapper.find('.red-delete-btn')
+    button.simulate("click", 22);
+    expect(mockFn).toHaveBeenCalled();
+  })
 
   it('should toggle state delete', () => {
     wrapper.setState({ delete: true });
