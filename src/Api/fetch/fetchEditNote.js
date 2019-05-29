@@ -11,8 +11,6 @@ export const fetchEditNote = note => {
   return fetch(url, options).then(response => {
     if (!response.ok) {
       throw new Error("Failed to edit note");
-    } else {
-      return response.json();
-    }
+    } 
   });
 };

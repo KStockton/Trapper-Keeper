@@ -84,6 +84,7 @@ export class NewCard extends Component {
 
   render() {
     const { notes } = this.state;
+    console.log(this.state)
 
     let todos = notes
       .filter(note => !note.completed)
