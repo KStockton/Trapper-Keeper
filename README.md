@@ -13,11 +13,10 @@ https://github.com/KStockton/api-trapper-keeper
    
  
  ### The Wireframe:
-![Trapper Keeper](https://user-images.githubusercontent.com/39016273/58562679-f5ee3100-81e6-11e9-8866-6e585eafc1fc.jpg)
+ <img width="603" alt="Screen Shot 2019-05-29 at 7 54 51 AM" src="https://user-images.githubusercontent.com/39016273/58562817-39e13600-81e7-11e9-903c-dc06df6e727e.png">
 
  ### Create cards: 
 ![2019-05-29 07 32 38](https://user-images.githubusercontent.com/39016273/58562317-3e591f00-81e6-11e9-8125-d321836d57e0.gif)
-
 
 ### Marking items as complete:
 ![2019-05-29 07 40 30](https://user-images.githubusercontent.com/39016273/58561804-3cdb2700-81e5-11e9-89f5-b6b18f20e322.gif)
