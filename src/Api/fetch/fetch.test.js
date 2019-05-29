@@ -131,14 +131,7 @@ describe("fetch calls", () => {
     });
     it("should delete the correct note", async () => {
       const result = await fetchDeleteNote(25);
-      expect(result).toEqual([
-        { id: 1, tasks: [{ id: 77, text: "a test" }], title: "Testing" },
-        {
-          id: 22,
-          tasks: [{ id: 65, text: "testing notes" }],
-          title: "Testing also"
-        }
-      ]);
+      expect(result).toEqual();
     });
     it("should throw an error if something goes wrong on user end", async () => {
       window.fetch = jest.fn(() =>
