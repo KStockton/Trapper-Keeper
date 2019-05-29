@@ -18,8 +18,6 @@ export class NewCard extends Component {
       const response = await fetchNote(id);
       const { title, list } = response;
 
-      console.log(response);
-
       this.setState({
         title,
         notes: list
@@ -43,7 +41,11 @@ export class NewCard extends Component {
 
   handleKeyPress = () => {
     const { listItem, notes } = this.state;
-    const newNote = { id: Date.now(), message: listItem, completed: false };
+    const newNote = {
+      id: Date.now(),
+      message: listItem,
+      completed: false
+    };
 
     this.setState({
       notes: [...notes, newNote],
@@ -62,15 +64,21 @@ export class NewCard extends Component {
   };
 
   handleSaveNote = () => {
-    if(this.props.id) {
+    if (this.props.id) {
       // fetchEditNote()
-      console.log('This is where the fetchEditNote goes')
+      console.log("This is where the fetchEditNote goes");
     } else {
       fetchAddNote(this.state.title, this.state.notes);
     }
   };
 
+  deleteListItem = noteId => {
+    const notes = this.state.notes.filter(note => note.id !== noteId);
+    this.setState({ notes });
+  };
+
   render() {
+    console.log(this.state.notes);
     const { notes } = this.state;
 
     let todos = notes
@@ -84,13 +92,18 @@ export class NewCard extends Component {
               onClick={this.handleComplete}
             />
             <input className="todo" value={incomplete.message} />
-            <i className="material-icons">delete_forever</i>
+            <i
+              className="material-icons"
+              onClick={() => this.deleteListItem(incomplete.id)}
+            >
+              delete_forever
+            </i>
           </section>
         );
       });
 
     let complete = notes
-    .filter(note => note.completed === true)
+      .filter(note => note.completed === true)
       .map(complete => {
         return (
           <section key={complete.id} className="note-item-component">
@@ -100,7 +113,12 @@ export class NewCard extends Component {
               onClick={this.handleComplete}
             />
             <input className="completed todo" value={complete.message} />
-            <i className="material-icons">delete_forever</i>
+            <i
+              className="material-icons"
+              onClick={() => this.deleteListItem(complete.id)}
+            >
+              delete_forever
+            </i>
           </section>
         );
       });
