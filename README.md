@@ -11,7 +11,7 @@ In the project directory, you can run:
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-You will also need to run the back ender server, found at:
+You will also need to run the back end server, found at:
 https://github.com/KStockton/api-trapper-keeper
    
  
