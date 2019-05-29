@@ -1,5 +1,7 @@
 # Trapper Keeper
-By: Michael King-Stockton https://github.com/KStockton, Matthew Kaplan https://github.com/MatthewKaplan, Rachael Drennan https://github.com/rdren0
+By: Michael King-Stockton https://github.com/KStockton, 
+   Matthew Kaplan https://github.com/MatthewKaplan, 
+   Rachael Drennan https://github.com/rdren0
 
 
 In the project directory, you can run:
