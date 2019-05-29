@@ -27,7 +27,9 @@ export class NoteContainer extends Component {
             <h3 className="intro-title">Welcome to TrapperKeeper</h3>
             <p className="intro-paragraph">
               TrapperKeeper is an application that helps you keep track of your
-              busy life by creating online checklists. <br/><br/> Add a card by clicking the button in the upper right to start.
+              busy life by creating online checklists. <br />
+              <br /> Add a card by clicking the button in the upper right to
+              start.
             </p>
           </div>
         )}

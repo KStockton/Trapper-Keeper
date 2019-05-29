@@ -12,11 +12,6 @@ export class NoteCard extends Component {
     this.state = { title: "", delete: false };
   }
 
-  // handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   this.setState({ [name]: value });
-  // };
-
   renderListItems = () => {
     const { list } = this.props.data;
 
@@ -55,10 +50,7 @@ export class NoteCard extends Component {
               onClick={() => this.handleDelete(id)}
             />
           ) : (
-            <div
-              className="delete-btn"
-              onMouseOver={this.handleMouseOver}
-            />
+            <div className="delete-btn" onMouseOver={this.handleMouseOver} />
           )}
         </section>
       </div>
