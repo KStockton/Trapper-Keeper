@@ -5,16 +5,7 @@ import { fetchNote } from "../../Api/fetch/fetchNote";
 import { Link } from "react-router-dom";
 
 export class NewCard extends Component {
-  constructor() {
-    super();
-    this.state = {
-      editList: "",
-      main: false,
-      title: "",
-      listItem: "",
-      notes: []
-    };
-  }
+  state = { title: "", listItem: "", notes: [] };
 
   componentDidMount() {
     this.grabInfo();
@@ -62,25 +53,14 @@ export class NewCard extends Component {
     });
   };
 
-  editListItem = id => {
-    console.log(id);
-    const { notes, editList } = this.state;
-    let editItem = notes.find(note => note.id == id);
-    console.log(editItem);
-    // editItem.message = editList
-    this.setState({ main: !this.state.main });
-    // const { value } = event.target
-    // id = parseInt(id);
-
-    // editItem.task = value;
-  };
-
   handleSaveNote = () => {
+    const { id } = this.props;
+    const { title, notes } = this.state;
     if (this.props.id) {
-      // fetchEditNote()
-      console.log("This is where the fetchEditNote goes");
+      const updatedList = { id, title, notes };
+      fetchEditNote(updatedList);
     } else {
-      fetchAddNote(this.state.title, this.state.notes);
+      fetchAddNote(title, notes);
     }
   };
 
@@ -89,11 +69,18 @@ export class NewCard extends Component {
     this.setState({ notes });
   };
 
+  editListItem = (noteId, e) => {
+    const { notes } = this.state;
+    const note = notes.find(n => n.id === noteId);
+    note.message = e.target.value;
+    this.setState({ notes });
+  };
+
   render() {
-    const { notes, main, editList } = this.state;
+    const { notes } = this.state;
 
     let todos = notes
-      .filter(note => note.completed === false)
+      .filter(note => !note.completed)
       .map(incomplete => {
         return (
           <section key={incomplete.id} className="note-item-component">
@@ -102,28 +89,23 @@ export class NewCard extends Component {
               id={incomplete.id}
               onClick={this.handleComplete}
             />
-            {main ? (
-              <input
-                className="todo"
-                name="editList"
-                value={editList}
-                onChange={this.handleChange}
-              />
-            ) : (
-              <p
-                className="completed todo"
-                onClick={() => this.editListItem(complete.id)}
-              >
-                {incomplete.message}
-              </p>
-            )}
-            <i className="material-icons">delete_forever</i>
+            <input
+              className="todo"
+              value={incomplete.message}
+              onChange={e => this.editListItem(incomplete.id, e)}
+            />
+            <i
+              className="material-icons"
+              onClick={() => this.deleteListItem(incomplete.id)}
+            >
+              delete_forever
+            </i>
           </section>
         );
       });
 
     let complete = notes
-      .filter(note => note.completed === true)
+      .filter(note => note.completed)
       .map(complete => {
         return (
           <section key={complete.id} className="note-item-component">
@@ -132,24 +114,12 @@ export class NewCard extends Component {
               id={complete.id}
               onClick={this.handleComplete}
             />
-            {main ? (
-              <input
-                className="todo"
-                name="editList"
-                value={editList}
-                onClick={() => this.editListItem(complete.id)}
-              />
-            ) : (
-              <p
-                className="completed todo"
-                onClick={() => this.editListItem(complete.id)}
-              >
-                {complete.message}
-              </p>
-            )}
-
+            <input
+              className="completed todo"
+              value={complete.message}
+              onChange={e => this.editListItem(complete.id, e)}
+            />
             <i
-              id="delete-button"
               className="material-icons"
               onClick={() => this.deleteListItem(complete.id)}
             >
@@ -190,16 +160,11 @@ export class NewCard extends Component {
         {complete}
         {this.state.notes.length ? (
           <section className="new-note-btns">
-            <button
-              className="save-note"
-              onClick={() => this.handleSaveNote()}
-            >
+            <button className="save-note" onClick={() => this.handleSaveNote()}>
               Save note
             </button>
             <Link to={"/"}>
-              <button className="save-note">
-                Return to all notes
-              </button>
+              <button className="save-note">Return to all notes</button>
             </Link>
           </section>
         ) : null}
