@@ -1,17 +1,12 @@
 .note-item-component {
+  align-items: center;
   border: 1px solid #edeeed;
   display: flex;
-  align-items: center;
 }
 
 .checked + p.list-item {
   text-decoration: line-through;
 }
-
-// .note-item-component:hover, .remove-content:hover {
-//   opacity: 1;
-//   cursor: pointer;
-// }
 
 .remove-content {
   background: none;
@@ -22,12 +17,12 @@
 }
 
 .list-item {
-  margin: 10px 0 0 0;
   background-color: #ffff88;
   border: none;
-  width: 90%;
-  height: 30px;
   font-size: 15px;
+  height: 30px;
+  margin: 10px 0 0 0;
+  width: 90%;
 
   &:focus {
     outline: none;
@@ -38,16 +33,16 @@
   background-image: url('../Assets/checked.svg');
   background-repeat: no-repeat;
   background-size: contain;
+  cursor: pointer;
   height: 30px;
   width: 30px;
-  cursor: pointer;
 }
 
 .unchecked {
   background-image: url('../Assets/unchecked.svg');
   background-repeat: no-repeat;
   background-size: contain;
+  cursor: pointer;
   height: 30px;
   width: 30px;
-  cursor: pointer;
 }
