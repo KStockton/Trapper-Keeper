@@ -23,6 +23,14 @@
   opacity: .7;
 }
 
+.material-icons {
+  cursor: pointer;
+
+  &:hover {
+    opacity: .6;
+  }
+}
+
 
 .note-title {
   margin-top: 15px;
