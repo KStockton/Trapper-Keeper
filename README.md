@@ -31,7 +31,8 @@ https://github.com/KStockton/api-trapper-keeper
 
 
 ## Learning Goals:
-1. Build your own backend
+1. Express.js
 2. Back-end testing
 3. Error Handling
 4. GET, POST, PUT, PATCH, DELETE
+5. React.js
