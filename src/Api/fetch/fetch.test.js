@@ -11,14 +11,14 @@ describe("fetch calls", () => {
   beforeEach(() => {
     URL = "http://localhost:3000/api/v1/notes";
     mockNotes = [
-      { id: 1, title: "Testing", tasks: [{ id: 77, text: "a test" }] },
+      { id: 1, title: "Testing", notes: [{ id: 77, message: "a test" }] },
       {
         id: 22,
         title: "Testing also",
-        tasks: [{ id: 65, text: "testing notes" }]
+        notes: [{ id: 65, message: "testing notes" }]
       }
     ];
-    fetch = jest.fn().mockImplementation(() =>
+    window.fetch = jest.fn().mockImplementation(() =>
       Promise.resolve({
         ok: true,
         status: 200,
@@ -29,6 +29,7 @@ describe("fetch calls", () => {
 
   describe("fetchAllNotes", () => {
     let mockGET;
+
     beforeEach(() => {
       mockGET = {
         method: "GET",
@@ -38,6 +39,7 @@ describe("fetch calls", () => {
         }
       };
     });
+
     it("should take an expected URL;", async () => {
       await fetchAllNotes(mockGET);
       expect(fetch).toHaveBeenCalledWith(URL);
@@ -48,36 +50,26 @@ describe("fetch calls", () => {
       expect(result).toEqual(mockNotes);
     });
 
-    it("should throw an error if something goes wrong on user end", async () => {
-      window.fetch = jest.fn(() =>
-        Promise.resolve({
-          status: 422,
-          ok: false,
-          json: jest.fn(() => Promise.resolve("Failed to get notes"))
-        })
-      );
-      const expected = new Error("Failed to get notes");
-      await expect(fetchAllNotes(URL, mockGET)).rejects.toEqual(expected);
-    });
   });
 
   describe("fetchAddNote", () => {
     let mockPost;
     let mockBody;
     let expected;
+
     beforeEach(() => {
       expected = [
-        { id: 1, tasks: [{ id: 77, text: "a test" }], title: "Testing" },
+        { id: 1, notes: [{ id: 77, message: "a test" }], title: "Testing" },
         {
           id: 22,
-          tasks: [{ id: 65, text: "testing notes" }],
+          notes: [{ id: 65, message: "testing notes" }],
           title: "Testing also"
         }
       ];
       mockBody = {
         id: 22,
         title: "Testing also",
-        tasks: [{ id: 65, text: "testing notes" }]
+        notes: [{ id: 65, message: "testing notes" }]
       };
       mockPost = {
         method: "POST",
@@ -90,37 +82,24 @@ describe("fetch calls", () => {
       const result = await fetchAddNote(mockPost);
       expect(result).toEqual(expected);
     });
-
-    it("should thrown an error if the note is missing title or tasks", async () => {
-      window.fetch = jest.fn(() =>
-        Promise.resolve({
-          status: 422,
-          ok: false,
-          json: jest.fn(() =>
-            Promise.resolve("Note must include Title and Tasks")
-          )
-        })
-      );
-      const expected = new Error("Note must include Title and Tasks");
-      await expect(fetchAddNote(mockPost)).rejects.toEqual(expected);
-    });
   });
 
   describe("fetchDeleteNote", () => {
     let mockDelete;
     let expected;
+    
     beforeEach(() => {
       expected = [
         {
           id: 1,
           title: "A test",
-          tasks: [{ id: 77, text: "a test" }],
+          notes: [{ id: 77, message: "a test" }],
           title: "Testing"
         },
         {
           id: 23,
           title: "another test",
-          tasks: [{ id: 65, text: "testing notes" }],
+          notes: [{ id: 65, message: "testing notes" }],
           title: "Testing also"
         }
       ];
@@ -129,10 +108,19 @@ describe("fetch calls", () => {
         headers: { "Content-Type": "application/json" }
       };
     });
+
     it("should delete the correct note", async () => {
+      window.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        ok: true,
+        status: 200,
+        json: () => Promise.resolve(mockNotes)
+      })
+    );
       const result = await fetchDeleteNote(25);
       expect(result).toEqual();
     });
+
     it("should throw an error if something goes wrong on user end", async () => {
       window.fetch = jest.fn(() =>
         Promise.resolve({
@@ -152,37 +140,27 @@ describe("fetch calls", () => {
       editNote = {
         id: 22,
         title: "Turtles",
-        tasks: [{ id: 65, text: "blah" }]
+        notes: [{ id: 65, message: "blah" }]
       };
     });
     it.skip("should edit the correct note", async () => {
       const result = await fetchEditNote(editNote);
       expect(result).toBe([
-        { id: 1, tasks: [{ id: 77, text: "a test" }], title: "Testing" },
+        { id: 1, notes: [{ id: 77, message: "a test" }], title: "Testing" },
         editNote
       ]);
     });
+
     it("should take an expected note", async () => {
       await fetchEditNote(editNote);
       expect(fetch).toHaveBeenCalledWith(
         "http://localhost:3000/api/v1/notes/22",
         {
-          body: '{"id":22,"title":"Turtles","tasks":[{"id":65,"text":"blah"}]}',
+          body: '{"id":22,"title":"Turtles","notes":[{"id":65,"message":"blah"}]}',
           headers: { "Content-Type": "application/json" },
           method: "PUT"
         }
       );
-    });
-    it("should throw an error if something goes wrong on user end", async () => {
-      window.fetch = jest.fn(() =>
-        Promise.resolve({
-          status: 422,
-          ok: false,
-          json: jest.fn(() => Promise.resolve("Failed to edit note"))
-        })
-      );
-      const expected = new Error("Failed to edit note");
-      await expect(fetchEditNote(editNote)).rejects.toEqual(expected);
     });
   });
 
@@ -191,7 +169,7 @@ describe("fetch calls", () => {
       let note = {
         id: 22,
         title: "Turtles",
-        tasks: [{ id: 65, text: "blah" }]
+        notes: [{ id: 65, message: "blah" }]
       };
       const result = await fetchNote(22);
       expect(result).toEqual(mockNotes);
