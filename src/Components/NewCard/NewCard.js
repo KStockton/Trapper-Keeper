@@ -99,7 +99,7 @@ export class NewCard extends Component {
               onChange={e => this.editListItem(incomplete.id, e)}
             />
             <i
-              className="material-icons"
+              className="material-icons delete"
               data-test="delete-button"
               onClick={() => this.deleteListItem(incomplete.id)}
             >

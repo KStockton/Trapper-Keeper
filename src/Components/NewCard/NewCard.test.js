@@ -41,7 +41,7 @@ describe("NewCard", () => {
     let MockFn = jest.spyOn(wrapper.instance(), "handleKeyPress");
     const addItem = wrapper.find("[data-test='enter-item']");
     addItem.simulate("keypress", { key: "Enter" });
-    expect(MockFn).toHaveBeenCalled;
+    expect(MockFn).toHaveBeenCalled();
   });
   it("should call grabInfo on mount", () => {
     let MockFn = jest.spyOn(wrapper.instance(), "grabInfo");
@@ -57,10 +57,11 @@ describe("NewCard", () => {
     saveButton.simulate("click");
     expect(MockFn).toHaveBeenCalled();
   });
-  it.skip("should call deleteListItem on click", () => {
+  it("should call deleteListItem on click", () => {
+    wrapper.setState({ notes: [{ id: 7, completed: false }] });
     let MockFn = jest.spyOn(wrapper.instance(), "deleteListItem");
     const deleteButton = wrapper.find("[data-test='delete-button']");
     deleteButton.simulate("click");
-    expect(MockFn).toHaveBeenCalled;
+    expect(MockFn).toHaveBeenCalled();
   });
 });
