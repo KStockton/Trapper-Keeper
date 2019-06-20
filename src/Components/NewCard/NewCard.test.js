@@ -57,6 +57,7 @@ describe("NewCard", () => {
     saveButton.simulate("click");
     expect(MockFn).toHaveBeenCalled();
   });
+  
   it("should call deleteListItem on click", () => {
     wrapper.setState({ notes: [{ id: 7, completed: false }] });
     let MockFn = jest.spyOn(wrapper.instance(), "deleteListItem");

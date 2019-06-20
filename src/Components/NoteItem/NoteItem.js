@@ -15,7 +15,7 @@ export class NoteItem extends Component {
   };
 
   render() {
-    const { listItem, isComplete } = this.state;
+    const { isComplete } = this.state;
     const { tasks } = this.props;
 
     return (

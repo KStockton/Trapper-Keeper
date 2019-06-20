@@ -8,8 +8,10 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 export class App extends Component {
+
   render() {
     const { notes } = this.props;
+    
     return (
       <div className="App">
         <Header />
