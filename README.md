@@ -1,38 +1,82 @@
 # Trapper Keeper
-By: 
-* Michael King-Stockton https://github.com/KStockton, 
-* Matthew Kaplan https://github.com/MatthewKaplan, 
-* Rachael Drennan https://github.com/rdren0
 
+The overall purpose of this application is to allow the user to keep track of their busy lives by creating an online checklist similar to Google Keep.
 
-In the project directory, you need to run:
-### `npm i`
+## Preview:
 
-### `npm start`
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Start_Page](https://i.imgur.com/DQ51leb.jpg)
+
+| Create Cards:                                                                                                                |
+| ---------------------------------------------------------------------------------------------------------------------------- |
+| ![2019-05-29 07 32 38](https://user-images.githubusercontent.com/39016273/58562317-3e591f00-81e6-11e9-8125-d321836d57e0.gif) |
+
+| Marking items as complete:                                                                                                   |
+| ---------------------------------------------------------------------------------------------------------------------------- |
+| ![2019-05-29 07 40 30](https://user-images.githubusercontent.com/39016273/58561804-3cdb2700-81e5-11e9-89f5-b6b18f20e322.gif) |
+
+| Marking items as complete:                                                                                                   |
+| ---------------------------------------------------------------------------------------------------------------------------- |
+| ![2019-05-29 07 33 52](https://user-images.githubusercontent.com/39016273/58562132-de627880-81e5-11e9-9232-7c5e30a8252f.gif) |
+
+## Getting Started:
+
+These instructions will get a copy of the project up and running on your local machine for usage and testing purposes.
+
+clone down the repository:
+
+```
+$ git clone https://github.com/KStockton/Trapper-Keeper.git
+```
+
+cd into directory and run npm install:
+
+```
+$ npm install
+```
+
+launch in your browser:
+
+```
+$ npm start
+```
 
 You will also need to run the back end server, found at:
 https://github.com/KStockton/api-trapper-keeper
-   
- 
- ### The Wireframe:
- <img width="603" alt="Screen Shot 2019-05-29 at 7 54 51 AM" src="https://user-images.githubusercontent.com/39016273/58562817-39e13600-81e7-11e9-903c-dc06df6e727e.png">
 
- ### Create cards: 
-![2019-05-29 07 32 38](https://user-images.githubusercontent.com/39016273/58562317-3e591f00-81e6-11e9-8125-d321836d57e0.gif)
+## Testing Project:
 
-### Marking items as complete:
-![2019-05-29 07 40 30](https://user-images.githubusercontent.com/39016273/58561804-3cdb2700-81e5-11e9-89f5-b6b18f20e322.gif)
+After following the <b>Getting Started</b> instructions you may test the project by doing the following.
 
-### Deleting cards:
-![2019-05-29 07 33 52](https://user-images.githubusercontent.com/39016273/58562132-de627880-81e5-11e9-9232-7c5e30a8252f.gif)
+test all files:
 
+```
+$ npm test
+```
 
+test the total coverage of the project:
 
-## Learning Goals:
-1. Express.js
-2. Back-end testing
-3. Error Handling
-4. GET, POST, PUT, PATCH, DELETE
-5. React.js
+```
+$ npm t -- --coverage --watchAll=false
+```
+
+## Project Tools:
+
+- React.js
+- Node.js
+- Express.js
+- React-Router
+- Redux
+- Enzyme/Jest
+- SCSS
+
+## Authors:
+
+- [Michael King-Stockton](https://github.com/KStockton)
+- [Matthew Kaplan](https://github.com/MatthewKaplan)
+- [Rachael Drennan](https://github.com/rdren0)
+
+---
+
+**[BACK TO TOP](https://github.com/KStockton/Trapper-Keeper#trapper-keeper)**
+
+---
