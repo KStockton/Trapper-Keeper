@@ -8,12 +8,10 @@ export class NewCard extends Component {
   state = { title: "", listItem: "", notes: [] };
 
   componentDidMount() {
-    this.grabInfo();
+    this.grabInfo(this.props.id);
   }
 
-  grabInfo = async () => {
-    const { id } = this.props;
-
+  grabInfo = async (id) => {
     if (id) {
       const response = await fetchNote(id);
       const { title, list } = response;
@@ -44,9 +42,9 @@ export class NewCard extends Component {
   };
 
   handleKeyPress = () => {
+    console.log('Keypress')
     const { listItem, notes } = this.state;
     const newNote = {
-      id: Date.now(),
       message: listItem,
       completed: false
     };
@@ -57,10 +55,9 @@ export class NewCard extends Component {
     });
   };
 
-  handleSaveNote = () => {
-    const { id } = this.props;
+  handleSaveNote = (id) => {
     const { title, notes } = this.state;
-    if (this.props.id) {
+    if (id) {
       const updatedList = { id, title, notes };
       fetchEditNote(updatedList);
     } else {
@@ -95,12 +92,13 @@ export class NewCard extends Component {
             />
             <input
               className="todo"
+              data-test='todo'
               value={incomplete.message}
               onChange={e => this.editListItem(incomplete.id, e)}
             />
             <i
               className="material-icons delete"
-              data-test="delete-button"
+              data-test="delete-button-incomplete"
               onClick={() => this.deleteListItem(incomplete.id)}
             >
               delete_forever
@@ -121,12 +119,13 @@ export class NewCard extends Component {
             />
             <input
               className="completed todo"
+              data-test='completed'
               value={complete.message}
               onChange={e => this.editListItem(complete.id, e)}
             />
             <i
               className="material-icons"
-              data-test="delete-button"
+              data-test="delete-button-complete"
               onClick={() => this.deleteListItem(complete.id)}
             >
               delete_forever
@@ -145,7 +144,7 @@ export class NewCard extends Component {
             className="note-title"
             value={this.state.title}
             placeholder="Title"
-            onChange={this.handleChange}
+            onChange={(e) => this.handleChange(e)}
           />
           <section className="add-new-note">
             <div className="plus" />
@@ -156,9 +155,11 @@ export class NewCard extends Component {
               value={this.state.listItem}
               placeholder="List Item"
               data-test="enter-item"
-              onChange={this.handleChange}
+              onChange={(e) => this.handleChange(e)}
               onKeyPress={event => {
-                if (event.key === "Enter") this.handleKeyPress();
+                if (event.key === "Enter"){
+                  this.handleKeyPress();
+                }
               }}
             />
           </section>
@@ -170,7 +171,7 @@ export class NewCard extends Component {
             <button
               className="save-note"
               data-test="save-note"
-              onClick={() => this.handleSaveNote()}
+              onClick={() => this.handleSaveNote(this.props.id)}
             >
               Save note
             </button>

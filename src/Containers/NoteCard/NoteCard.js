@@ -4,7 +4,6 @@ import { fetchDeleteNote } from "../../Api/fetch/fetchDeleteNote";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../Actions/index";
-//setstate error  in handleDelete function but havent done anything to the error if it is not null
 
 export class NoteCard extends Component {
   constructor() {
@@ -26,7 +25,7 @@ export class NoteCard extends Component {
       await fetchDeleteNote(noteId);
       this.props.deleteNote(noteId);
     } catch (error) {
-      this.setState({ error });
+      this.props.handleError(error.message);
     }
   };
 
@@ -58,7 +57,8 @@ export class NoteCard extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  deleteNote: id => dispatch(actions.deleteNote(id))
+  deleteNote: id => dispatch(actions.deleteNote(id)),
+  handleError: errorMessage => dispatch(actions.handleError(errorMessage))
 });
 
 export default connect(
