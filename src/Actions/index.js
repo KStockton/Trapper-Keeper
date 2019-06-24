@@ -6,4 +6,9 @@ export const allNotes = notes => ({
 export const deleteNote = id => ({
   type: "DELETE_NOTE",
   id
-})
+});
+
+export const handleError = errorMessage => ({
+  type: "HANDLE_ERROR",
+  errorMessage
+});

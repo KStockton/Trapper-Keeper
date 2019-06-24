@@ -6,11 +6,16 @@ import {
   mapDispatchToProps
 } from "./NoteContainer";
 import { allNotes } from "../../Actions/index";
+import { fetchAllNotes } from "../../Api/fetch/fetchAllNotes";
+
+jest.mock("../../Api/fetch/fetchAllNotes.js");
+const mockAllNotes = jest.fn();
 
 describe("NoteContainer", () => {
-  let wrapper;
-  let mockFn;
-  let mockNotes;
+  let wrapper, mockFn, mockNotes, instance;
+
+  fetchAllNotes.mockImplementation(() => Promise.resolve(1));
+
   beforeEach(() => {
     mockNotes = [
       {
@@ -25,7 +30,12 @@ describe("NoteContainer", () => {
       }
     ];
     mockFn = jest.fn();
-    wrapper = shallow(<NoteContainer renderNotes={mockFn} notes={mockNotes} />);
+    wrapper = shallow(<NoteContainer renderNotes={mockFn} notes={mockNotes} allNotes={mockAllNotes} />);
+    instance = wrapper.instance();
+  });
+
+  afterEach(() => {
+    fetchAllNotes.mockClear();
   });
 
   it("should match the snapshot", () => {
@@ -35,6 +45,25 @@ describe("NoteContainer", () => {
     let notes = [];
     wrapper = shallow(<NoteContainer notes={notes} />);
     expect(wrapper).toMatchSnapshot();
+  });
+
+  describe("renderNotes", () => {
+    it("should return the proper values when invoked", () => {
+      const results = instance.renderNotes();
+      expect(results).toHaveLength(2);
+    });
+  });
+
+  describe("componentDidMount", () => {
+    it("should invoke 'fetchAllNotes' when mounted", () => {
+      instance.componentDidMount();
+      expect(fetchAllNotes).toHaveBeenCalled();
+    });
+
+    it("should invoke 'allNotes' after fetch is done", () => {
+      instance.componentDidMount();
+      expect(mockAllNotes).toHaveBeenCalled();
+    })
   });
 
   describe("mapStateToProps", () => {
