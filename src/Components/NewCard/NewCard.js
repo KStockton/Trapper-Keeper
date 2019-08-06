@@ -86,7 +86,7 @@ export class NewCard extends Component {
         return (
           <section key={incomplete.id} className="note-item-component">
             <div
-              className="unchecked"
+              className="unchecked new-note-unchecked"
               id={incomplete.id}
               onClick={this.handleComplete}
             />
