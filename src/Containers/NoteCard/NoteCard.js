@@ -37,7 +37,10 @@ export class NoteCard extends Component {
         {this.renderListItems()}
         <section className="note-options">
           <Link to={`notes/${id}`}>
-            <button className="edit-note-btn">Edit Note</button>
+          <i class="material-icons edit-note-btn">
+            create
+          </i>
+            {/* <button className="edit-note-btn">Edit Note</button> */}
           </Link>
           {this.state.delete === true ? (
             <div

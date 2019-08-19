@@ -2,7 +2,6 @@
 
 .note-card-component {
   background-color: $card-color;
-  box-shadow: 3px 10px 10px -10px rgba(0,0,0,0.75);
   break-inside: avoid;
   margin: 0 0 20px;
   overflow: hidden;
@@ -23,20 +22,15 @@
     justify-content: space-between;
 
     .edit-note-btn {
-      @include buttons;
+      color: black;
+      margin-left: 14px;
+      font-size: 30px;
 
       &:hover {
-        color: #fff;
+        color: rgb(246, 8, 8);
+        cursor: pointer;
         z-index: 1;
-      }
-
-      &::before {
-        @include buttons-before;
-      }
-    
-      &:hover::before {
-        height: 180%;
-        color: white;
+        transform: scale(1.1)
       }
     }
   }

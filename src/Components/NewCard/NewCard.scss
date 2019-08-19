@@ -30,6 +30,7 @@
       display: flex;
       flex-direction: row;
       width: 100%;
+      padding-bottom: 10px;
     }
 
     .plus {
@@ -69,6 +70,7 @@
       &:hover {
         color: #fff;
         z-index: 1;
+        transform: scale(1.1)
       }
 
       &::before {
@@ -90,7 +92,7 @@
     display: -webkit-box;
     overflow: hidden;
     overflow: hidden;
-    padding-left: 21px;
+    padding-left: 12px;
     text-align: left;
     width: 100%;
   }
@@ -113,4 +115,9 @@
 
 .delete {
   margin-right: 14px;
+
+  &:hover {
+    transition: ease-in .3s;
+    transform: scale(1.3);
+  }
 }

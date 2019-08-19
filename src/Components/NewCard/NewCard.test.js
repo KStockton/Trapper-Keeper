@@ -11,7 +11,7 @@ jest.mock("../../Api/fetch/fetchAddNote.js");
 jest.mock("../../Api/fetch/fetchNote.js");
 
 describe("NewCard", () => {
-  let wrapper, instance, mockEvent;
+  let wrapper, instance, mockEvent, mockId;
 
   fetchEditNote.mockImplementation(() => Promise.resolve(1));
   fetchAddNote.mockImplementation(() => Promise.resolve(1));
@@ -21,6 +21,8 @@ describe("NewCard", () => {
     wrapper = shallow(<NewCard />);
     instance = wrapper.instance();
     mockEvent = { target: { value: "hello", name: "title" } };
+    mockId = Date.now()
+    Date.now = jest.fn()
   });
 
   afterEach(() => {
@@ -109,6 +111,7 @@ describe("NewCard", () => {
       expect(MockFn).toHaveBeenCalled();
       expect(wrapper.state("notes")).toEqual([
         {
+          id: mockId,
           completed: false,
           message: "Don't do Laundry"
         }
