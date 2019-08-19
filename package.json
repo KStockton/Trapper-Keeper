@@ -2,6 +2,9 @@
   "name": "trapper-keeper",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "10.15.1"
+  },
   "dependencies": {
     "eslint": "^5.16.0",
     "node-sass": "^4.12.0",
