@@ -1,5 +1,3 @@
-// import { BASE_URL } from "../utilities";
-
 export const fetchEditNote = note => {
   const url = `${process.env.REACT_APP_BASEURL}/api/v1/notes/${note.id}`;
   const options = {

@@ -1,4 +1,3 @@
-// import { BASE_URL } from "../utilities";
 
 export const fetchAddNote = async (title, list) => {
   const url = `${process.env.REACT_APP_BASEURL}/api/v1/notes`;
