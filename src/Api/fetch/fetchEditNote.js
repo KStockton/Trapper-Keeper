@@ -1,7 +1,7 @@
-import { BASE_URL } from "../utilities";
+// import { BASE_URL } from "../utilities";
 
 export const fetchEditNote = note => {
-  const url = `${BASE_URL}/api/v1/notes/${note.id}`;
+  const url = `${process.env.REACT_APP_BASEURL}/api/v1/notes/${note.id}`;
   const options = {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
