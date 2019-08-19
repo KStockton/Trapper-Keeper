@@ -16,6 +16,8 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "redux-thunk": "^2.3.0",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
     "tar": "^4.4.8"
   },
   "scripts": {
@@ -42,8 +44,6 @@
   "devDependencies": {
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.1",
-    "react-redux": "^7.0.3",
-    "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8"
   },
   "jest": {
