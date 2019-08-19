@@ -27,10 +27,11 @@
       font-size: 30px;
 
       &:hover {
+        transition: ease-in .3s;
         color: rgb(246, 8, 8);
         cursor: pointer;
         z-index: 1;
-        transform: scale(1.1)
+        transform: scale(1.1);
       }
     }
   }
@@ -38,6 +39,11 @@
   .red-delete-btn {
     background-image: url('../Assets/red-waste-bin.svg');
     @include card-icon;
+    
+    &:hover {
+      transition: ease-in .3s;
+      transform: scale(1.1);
+    }
   }
 
   .delete-btn {

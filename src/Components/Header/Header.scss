@@ -5,14 +5,23 @@
   height: 100px;
   margin-top: 0;
   width: 100vw;
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+  }
   
   .logo {
     color: $logo-color;
     margin: 5px auto;
     margin-left: 65px;
-    float: left;
-    font-family: 'Lora', serif;
     font-size: 70px;
+    font-weight: 300;
 
     &::before {
       content: "";
@@ -23,6 +32,11 @@
       position: absolute;
       width: 75px;
     }
+
+    span {
+      font-weight: 800;
+      text-transform: uppercase;
+    }
   }
 
   .add-note {
@@ -31,7 +45,6 @@
     @include background-style;
     border: none;
     cursor: pointer;
-    float: right;
     height: 65px;
     margin: 20px 20px;
     width: 65px;

@@ -7,10 +7,10 @@ class Header extends Component {
       <div className="header-component ">
         <header>
           <Link to={"/"}>
-            <h1 className="logo">TrapperKeeper</h1>
+            <h1 className="logo">Trapper<span>Keeper</span></h1>
           </Link>
           <Link to={"/new-note"}>
-            <button className="add-note" />
+            <button className="add-note"></button>
           </Link>
         </header>
       </div>
