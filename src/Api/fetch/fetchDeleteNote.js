@@ -10,5 +10,4 @@ export const fetchDeleteNote = async id => {
   if (!response.ok) {
     throw Error("Failed to delete note");
   }
-  // return response.json()
 };

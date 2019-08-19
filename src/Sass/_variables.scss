@@ -25,6 +25,8 @@ $button-color: #008000;
   height: 30px;
   width: 30px;
   cursor: pointer;
+  margin-left: 11px;
+
 }
 
 @mixin buttons {
@@ -38,6 +40,7 @@ $button-color: #008000;
   transition: 0.8s;
   position: relative;
   overflow: hidden;
+  border-radius: 3px;
 }
 
 @mixin buttons-before {

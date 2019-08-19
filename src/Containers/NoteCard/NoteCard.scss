@@ -2,7 +2,6 @@
 
 .note-card-component {
   background-color: $card-color;
-  box-shadow: 3px 10px 10px -10px rgba(0,0,0,0.75);
   break-inside: avoid;
   margin: 0 0 20px;
   overflow: hidden;
@@ -23,20 +22,16 @@
     justify-content: space-between;
 
     .edit-note-btn {
-      @include buttons;
+      color: black;
+      margin-left: 14px;
+      font-size: 30px;
 
       &:hover {
-        color: #fff;
+        transition: ease-in .3s;
+        color: rgb(246, 8, 8);
+        cursor: pointer;
         z-index: 1;
-      }
-
-      &::before {
-        @include buttons-before;
-      }
-    
-      &:hover::before {
-        height: 180%;
-        color: white;
+        transform: scale(1.1);
       }
     }
   }
@@ -44,6 +39,11 @@
   .red-delete-btn {
     background-image: url('../Assets/red-waste-bin.svg');
     @include card-icon;
+    
+    &:hover {
+      transition: ease-in .3s;
+      transform: scale(1.1);
+    }
   }
 
   .delete-btn {

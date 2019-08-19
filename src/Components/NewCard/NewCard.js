@@ -32,7 +32,6 @@ export class NewCard extends Component {
   handleComplete = event => {
     const { notes } = this.state;
     let { id } = event.target;
-
     id = parseInt(id);
 
     const togglecomplete = notes.find(note => note.id === id);
@@ -42,11 +41,11 @@ export class NewCard extends Component {
   };
 
   handleKeyPress = () => {
-    console.log('Keypress')
     const { listItem, notes } = this.state;
     const newNote = {
       message: listItem,
-      completed: false
+      completed: false,
+      id: Date.now()
     };
 
     this.setState({
@@ -82,9 +81,9 @@ export class NewCard extends Component {
 
     let todos = notes
       .filter(note => !note.completed)
-      .map(incomplete => {
+      .map((incomplete, index) => {
         return (
-          <section key={incomplete.id} className="note-item-component">
+          <section key={incomplete.id || index} className="note-item-component">
             <div
               className="unchecked"
               id={incomplete.id}
@@ -101,7 +100,7 @@ export class NewCard extends Component {
               data-test="delete-button-incomplete"
               onClick={() => this.deleteListItem(incomplete.id)}
             >
-              delete_forever
+              close
             </i>
           </section>
         );
@@ -124,11 +123,11 @@ export class NewCard extends Component {
               onChange={e => this.editListItem(complete.id, e)}
             />
             <i
-              className="material-icons"
+              className="material-icons delete"
               data-test="delete-button-complete"
               onClick={() => this.deleteListItem(complete.id)}
             >
-              delete_forever
+              close
             </i>
           </section>
         );
