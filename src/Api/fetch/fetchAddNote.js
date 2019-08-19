@@ -8,7 +8,5 @@ export const fetchAddNote = async (title, list) => {
     body: JSON.stringify(body)
   };
   const response = await fetch(url, options)
- 
       return response.json();
-
 };

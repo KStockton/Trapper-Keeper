@@ -8,11 +8,12 @@
 }
 
 .note-container-start {
-  background-color: $card-color;
-  box-shadow: 3px 10px 10px -10px rgba(0,0,0,0.75); 
-  height: 230px;
+  background-color: #ffff88;
+  box-shadow: 3px 10px 10px -10px rgba(0, 0, 0, 0.75);
+  height: 19rem;
   margin: 150px auto;
-  width: 300px; 
+  width: calc(100% - 57rem);
+  min-width: 17rem;
   
   .intro-title {
     padding-top: 30px;
