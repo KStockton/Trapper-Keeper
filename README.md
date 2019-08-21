@@ -1,13 +1,13 @@
 ## Trapper Keeper
 
-### Goals and Objectives
+### Goals and Objectives:
 The overall purpose of this application is to allow the user to keep track of their busy lives by creating an online checklist similar to Google Keep.
 
 ### Website Link:
 
 View the website here https://trapper-keeper-front.herokuapp.com/
 
-## Getting Started:
+### Setup:
 
 These instructions will get a copy of the project up and running on your local machine for usage and testing purposes.
 
