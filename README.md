@@ -7,13 +7,6 @@ The overall purpose of this application is to allow the user to keep track of th
 
 View the website here https://trapper-keeper-front.herokuapp.com/
 
-## Wireframe
-
-![Page_1](https://user-images.githubusercontent.com/34406483/63379070-c3b91f00-c350-11e9-80a1-954dd0c5f792.png)
-
-![Page_2](https://user-images.githubusercontent.com/34406483/63379065-c287f200-c350-11e9-939e-36ba56d740a6.png)
-
-
 ## Getting Started:
 
 These instructions will get a copy of the project up and running on your local machine for usage and testing purposes.
@@ -38,6 +31,17 @@ $ npm start
 
 You will also need to run the back end server, found at:
 https://github.com/KStockton/api-trapper-keeper
+
+
+## Wireframe
+
+![Page_1](https://user-images.githubusercontent.com/34406483/63379070-c3b91f00-c350-11e9-80a1-954dd0c5f792.png)
+
+![Page_2](https://user-images.githubusercontent.com/34406483/63379065-c287f200-c350-11e9-939e-36ba56d740a6.png)
+
+## Preview
+
+<img width="1393" alt="Screen Shot 2019-08-21 at 12 33 00 AM" src="https://user-images.githubusercontent.com/34406483/63409254-0c52f580-c3ae-11e9-98c1-28feee84fdd2.png">
 
 ## Testing Project:
 
@@ -64,10 +68,11 @@ $ npm t -- --coverage --watchAll=false
 - React.js
 - Node.js
 - Express.js
-- React-Router
+- React Router
 - Redux
 - Enzyme/Jest
 - SCSS
+- Async Javascript
 
 ## Authors:
 
