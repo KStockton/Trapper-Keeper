@@ -1,16 +1,15 @@
 import { BASE_URL } from "../utilities";
 
-export const fetchEditNote = note => {
-  const url = `${BASE_URL}/api/v1/notes/${note.id}`;
+export const fetchEditNote = async (note, updated) => {
+  const url = `${BASE_URL}/notes/${note._id}`;
   const options = {
-    method: "PUT",
+    method: "PATCH",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(note)
+    body: JSON.stringify(updated)
   };
-  return fetch(url, options)
-  // .then(response => {
-  //   if (!response.ok) {
-  //     throw new Error("Failed to edit note");
-  //   }
-  // });
+  try {
+    await fetch(url, options)
+  } catch (e) {
+    console.log('Unable to edit note', e)
+  }
 };
