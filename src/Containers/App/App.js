@@ -26,7 +26,7 @@ export class App extends Component {
               const note = notes.find(
                 /* istanbul ignore next */
                 // eslint-disable-next-line
-                note => note.id == id
+                note => note._id == id
               );
               /* istanbul ignore next */
               if (note) {

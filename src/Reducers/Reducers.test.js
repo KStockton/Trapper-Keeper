@@ -9,6 +9,7 @@ describe("Reducer Tests", () => {
         { id: 1, title: "Starting State", task: [{ id: 77, text: "testing" }] }
       ];
     });
+
     it("should return an array of notes when case is ALL_NOTES ", () => {
       const result = noteReducer([], actions.allNotes(notes));
       expect(result).toEqual(notes);
@@ -18,14 +19,20 @@ describe("Reducer Tests", () => {
       const result = noteReducer([], {});
       expect(result).toEqual([]);
     });
-    it("should return initial state when case is not ALL_NOTES ", () => {
-      const result = noteReducer([], {});
-      expect(result).toEqual([]);
-    });
 
     it("should return initial state when case is not DELETE_NOTE ", () => {
       const result = noteReducer(notes, actions.deleteNote(notes));
       expect(result).toEqual(notes);
+    });
+
+    it("should return filtered state of notes when case is DELETE_NOTE", () => {
+      const expected = notes;
+      const result = noteReducer(
+        undefined,
+        actions.allNotes(notes)
+      );
+  
+      expect(result).toEqual(expected);
     });
   });
 });

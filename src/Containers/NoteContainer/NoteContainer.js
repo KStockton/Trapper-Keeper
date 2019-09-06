@@ -13,7 +13,7 @@ export class NoteContainer extends Component {
   renderNotes = () => {
     return this.props.notes
       .flat()
-      .map(note => <NoteCard key={note.id} data={note} />);
+      .map(note => <NoteCard key={note._id} data={note} />);
   };
 
   render() {

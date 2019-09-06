@@ -58,6 +58,10 @@ test the total coverage of the project:
 ```
 $ npm t -- --coverage --watchAll=false
 ```
+<p align="center">
+  <img src="https://i.imgur.com/B6A5Zyq.png" alt="project test coverage">
+</p>
+
 
 ## Project Tools:
 

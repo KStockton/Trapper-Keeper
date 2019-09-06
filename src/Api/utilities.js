@@ -1,1 +1,1 @@
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://trapper-keeper-nodejs.herokuapp.com';
