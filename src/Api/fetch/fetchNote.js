@@ -1,10 +1,11 @@
 import { BASE_URL } from "../utilities";
 
 export const fetchNote = async id => {
-  const url = `${BASE_URL}/api/v1/notes/${id}`;
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`Could not fetch Note with ${id}`);
+  const url = `${BASE_URL}/notes/${id}`;
+  try {
+    const response = await fetch(url);
+    return await response.json();
+  } catch (e) {
+    console.log('Unable to locate selected note', e)
   }
-  return await response.json();
 };
