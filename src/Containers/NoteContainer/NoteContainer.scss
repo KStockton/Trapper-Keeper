@@ -1,19 +1,19 @@
 @import "../../Sass/Variables.scss";
 
 .note-container-component {
-  column-gap: 40px;
-  columns: 4;
-  margin: 20px auto;
-  width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 29px;
+  margin: 31px;
 }
 
 .note-container-start {
   background-color: #ffff88;
   box-shadow: 3px 10px 10px -10px rgba(0, 0, 0, 0.75);
-  height: 19rem;
   margin: 150px auto;
-  width: calc(100% - 57rem);
+  width: calc(100% - 41%);
   min-width: 17rem;
+  padding-bottom: 27px;
   
   .intro-title {
     padding-top: 30px;
@@ -25,26 +25,26 @@
   }
 }
 
-@media (max-width: 1200px)
-{
-  .note-container-component {
-    columns: 3;
-    width: calc(100% - 40px);
-    box-sizing: border-box;
-    padding: 20px 20px 20px 0;
-  }
-}
+// @media (max-width: 1200px)
+// {
+//   .note-container-component {
+//     columns: 3;
+//     width: calc(100% - 40px);
+//     box-sizing: border-box;
+//     padding: 20px 20px 20px 0;
+//   }
+// }
 
-@media (max-width: 768px)
-{
-  .note-container-component {
-    columns: 2;
-  }
-}
+// @media (max-width: 768px)
+// {
+//   .note-container-component {
+//     columns: 2;
+//   }
+// }
 
-@media (max-width: 480px)
-{
-  .note-container-component {
-    columns: 1;
-  }
-}
+// @media (max-width: 480px)
+// {
+//   .note-container-component {
+//     columns: 1;
+//   }
+// }
