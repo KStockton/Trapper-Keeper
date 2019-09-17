@@ -2,7 +2,7 @@
 
 .header-component {
   background-color: $header-color;
-  height: 100px;
+  height: 10vh;
   margin-top: 0;
   width: 100vw;
 
@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 
   a {
@@ -20,17 +21,18 @@
     color: $logo-color;
     margin: 5px auto;
     margin-left: 65px;
-    font-size: 70px;
+    font-size: 6vw;
     font-weight: 300;
 
     &::before {
       content: "";
       background-image: url('../Assets/pin.png');
       @include background-style;
-      height: 75px;
+      height: 9vh;
       left: 10px;
       position: absolute;
-      width: 75px;
+      width: 8vw;
+      ;
     }
 
     span {
@@ -38,16 +40,19 @@
       text-transform: uppercase;
     }
   }
+  header a:nth-child(2){
+    margin: 20px;
+  }
 
   .add-note {
-    background-color: $header-color;
+    background-color: #fafbff00;
     background-image: url('../Assets/plus.svg');
     @include background-style;
     border: none;
     cursor: pointer;
-    height: 65px;
-    margin: 20px 20px;
-    width: 65px;
+    height: 5vh;
+    margin: auto;
+    width: 33px;
 
     &:focus {
       outline: none;
