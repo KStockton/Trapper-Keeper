@@ -3,8 +3,9 @@
 .new-card-component {
   background-color: $card-color;
   box-shadow: 3px 10px 10px -10px rgba(0,0,0,0.75);
-  margin: 50px auto;
-  width: 50%;
+  margin: 56px auto;
+  width: calc(100% - 41%);
+  min-width: 17rem;
   
   .new-card-form {
     align-items: center;
