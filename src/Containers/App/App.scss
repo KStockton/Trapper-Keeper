@@ -10,6 +10,12 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  // height: 100%;
-  // width: 100vw;
+}
+
+@media screen and (max-width: 414px) {
+  body {
+    background-image: url('../Assets/corkboard.jpg');
+    background-size: contain;
+    background-repeat: repeat;
+  }
 }

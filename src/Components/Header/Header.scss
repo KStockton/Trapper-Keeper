@@ -64,3 +64,28 @@
   }
 }
 
+@media screen and (max-width: 414px) {
+  .header-component .logo::before {
+    width: 14vw;
+    left: 10px;
+    top: 10px;
+  }
+  
+  .header-component .logo {
+    margin-left: 54px;
+    font-size: 1.8em;
+  }
+
+  .header-component .add-note {
+    width: 45px;
+    margin-bottom: 12px;
+    margin-left: 67px;
+
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .header-component .logo {
+    margin-left: 35px;
+  }
+}
